@@ -8,10 +8,10 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       {/* <NavBar /> */}
       
-      <div class="container mt-24 mx-auto">
+      <div class="">
         <ProductPage/>
-        {/* <Homepage/>
-        <AboutSection/> */}
+        {/* <Homepage/> */}
+        {/* <AboutSection/> */}
         </div>
 
     </main>
