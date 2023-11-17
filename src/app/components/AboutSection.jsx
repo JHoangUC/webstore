@@ -48,9 +48,9 @@ const AboutSection = () => {
 		});
 	};
 	return (
-		<section className="bg-white py-8 flex items-left justify-left">
+		<section  className="bg-white py-8 flex items-left justify-left">
 			{/* Welcome Header */}
-			<div className="py-8 px-8 text-black">
+			<div id="about" className="py-8 px-8 text-black">
 				<h2 className="text-4xl font-medium text-left   text-black">
 					Welcome to Khoi
 				</h2>
