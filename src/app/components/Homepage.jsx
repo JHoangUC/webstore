@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 const Homepage = () => {
 	return (
 		<section className="flex min-h-screen flex-col bg-[#fafafa]">
@@ -14,9 +16,11 @@ const Homepage = () => {
 					style={{ width: "100%", height: "auto" }}
 					alt="hero"
 				/>
-				<button className="absolute bottom-5 bg-black text-white px-6 py-3 font-medium rounded-md">
-					Explore
-				</button>
+				<Link href="/pikasoja">
+					<button className="absolute bottom-5 bg-black text-white px-6 py-3 font-medium rounded-md">
+						Explore
+					</button>
+				</Link>
 			</div>
 			{/* // Featured products section */}
 
@@ -33,7 +37,6 @@ const Homepage = () => {
 					alt="hero"
 				/>
 			</div>
-
 		</section>
 	);
 };
