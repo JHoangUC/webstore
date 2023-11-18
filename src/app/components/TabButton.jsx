@@ -7,14 +7,14 @@ const variants = {
 };
 
 const TabButton = ({ active, selectTab, children }) => {
-	const buttonClasses = active ? "text-gray-700 border-gray-300 bg-gray-200" : "text-black";
+	const buttonClasses = active ? "opacity-60 text-gray-700 border-b-2 border-gray-400 bg-gray-100" : "text-black";
 
 	return (
 		<button onClick={selectTab}>
 			<p
 				className={
-							` py-1 bg-[#bebebe] 
-							inline-block p-4 border-b-2  border-black 
+							`pt-3 bg-[#bebebe] h-15 shadow-none flex-grow 
+							inline-block p-4 border-black 
 							hover:text-gray-600 hover:border-gray-300
 							
 	${buttonClasses}`}

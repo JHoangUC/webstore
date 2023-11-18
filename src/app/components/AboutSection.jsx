@@ -1,40 +1,41 @@
 "use client";
+
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
+
 const TAB_DATA = [
 	{
-		title: "Skills",
+		title: "About Me",
 		id: "skills",
 		content: (
-			<ul className="list-disc pl-2">
-				<li>Node.js</li>
-				<li>Express</li>
-				<li>React</li>
-				<li>Next.js</li>
-				<li>MongoDb</li>
-			</ul>
+			<p>
+				I'm John, the one-person show behind Khoi. I'm on a mission to share my
+				passion for design and tech with you through these amazing stickers.
+			</p>
 		),
 	},
 	{
-		title: "Education",
+		title: "Why Stickers?",
 		id: "education",
 		content: (
-			<ul className="list-disc pl-2">
-				<li>University Of California, San Diego</li>
-				<li>Palomar College, San Marcos</li>
-			</ul>
+			<p>
+				Stickers aren't just paper and adhesive to me; they're tiny canvases of
+				self-expression. I pour my heart and soul into each design, hoping to
+				bring a little bit of joy, inspiration, and color to your life.
+			</p>
 		),
 	},
 	{
-		title: "Experience",
+		title: "Support",
 		id: "experience",
 		content: (
-			<ul className="list-disc pl-2">
-				<li>React Native Developer, Resilience Inc</li>
-				<li>Software Engineer at Facebook</li>
-			</ul>
+			<p>
+				This store is a labor of love, and every purchase directly supports an
+				independent artist and developer like me. Your support keeps the dream
+				alive and the stickers flowing!
+			</p>
 		),
 	},
 ];
@@ -48,50 +49,60 @@ const AboutSection = () => {
 		});
 	};
 	return (
-		<container  class="bg-[#bebebe]  py-8 font-mont flex items-top justify-center">
+		<div class="bg-[#bebebe]  pt-8 flex flex-col items-top items-center justify-center">
 			{/* Welcome Header */}
-			<div id="about" className="py-8 px-8  text-black">
-				<h2 className="text-4xl  text-left  tracking-wide text-black">
+			<div id="about" className="py-2 px-8 w-full sm:w-3/4 text-black">
+				<h1 className="text-3xl sm:text-5xl font-light  text-center tracking-wide text-black">
 					Welcome to Khoi
-				</h2>
-				<p className="text-lg font-thin border-b-2 text-[#1a1b1f] text-opacity-60 border-black text-center">
+				</h1>
+				<p className="sm:text-lg text-md font-normal border-b-2 text-[#1a1b1f] text-opacity-60 border-black text-center">
 					It's a one person show
 				</p>
-				
-                <div className="flex flex-row text-black justify-center">
-                <TabButton
-					selectTab={() => handleTabChange("skills")}
-					active={tab === "skills"}
-				>
-					Skills{" "}
-				</TabButton>
-				<TabButton
-					selectTab={() => handleTabChange("education")}
-					active={tab === "education"}
-				>
-					Education{" "}
-				</TabButton>
-				<TabButton
-					selectTab={() => handleTabChange("experience")}
-					active={tab === "experience"}
-				>
-					Experience{" "}
-				</TabButton>
-                </div>
-                <div className="mt-8">{TAB_DATA.find((t) => t.id === tab).content}</div>
-
 			</div>
-            <div className="w-[400px] h-[550px] md:w-[100px] md:h-[300px] lg:w-[500px] lg:h-[400px] relative
-			 ">
-			<Image
 
-				src={"/images/khoi.jpg"}
-				objectFit="contain"
-				fill={true}
-				alt="hero"
-			/>
-            </div>
-		</container>
+			{/* TAB BUTTON */}
+				<div className=" p-2 flex flex-row text-sm sm:text-xl
+				 text-black items-center justify-center  ">
+					<TabButton
+						selectTab={() => handleTabChange("skills")}
+						active={tab === "skills"}
+					>
+						About Me{" "}
+					</TabButton>
+					<TabButton
+						selectTab={() => handleTabChange("education")}
+						active={tab === "education"}
+					>
+						Why Stickers?{" "}
+					</TabButton>
+					<TabButton
+						selectTab={() => handleTabChange("experience")}
+						active={tab === "experience"}
+					>
+						Support me{" "}
+					</TabButton>
+				</div>
+			
+
+			{/* Editing Tab Content Data */}
+			<div className=" text-black text-lg  border-gray-300 border-4 bg-gray-200 
+			rounded-xl p-4 m-4 drop-shadow-lg max-w-screen-lg text-center">
+				{TAB_DATA.find((t) => t.id === tab).content}
+			</div>
+
+			<div
+				className=" drop-shadow-lg
+			   w-[400px] h-[550px] md:w-[500px] md:h-[500px] lg:w-[500px] lg:h-[500px] relative
+			 "
+			>
+				<Image
+					src={"/images/khoi.jpg"}
+					objectFit="contain"
+					fill={true}
+					alt="hero"
+				/>
+			</div>
+		</div>
 	);
 };
 

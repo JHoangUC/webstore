@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      mont: ['montserrat', 'sans-serif'],
+      mont: ['montserrat', 'sans-serif', 'ui-sans-serif', 'system-ui', 'sans', 'serif', 'monospace'],
     },
     extend: {
       backgroundImage: {
