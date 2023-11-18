@@ -1,41 +1,26 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 
 const Homepage = () => {
 	return (
 		<section className="flex min-h-screen flex-col bg-[#fafafa]">
-			<h1 className="text-4xl font-bold text-center bg-black">Store 🛒</h1>
-			<div className="flex flex-col items-center justify-center relative">
-				<Image
-					src="/images/hompage-background.jpg"
-					width={0}
-					height={0}
-					sizes="100vw"
-					style={{ width: "100%", height: "auto" }}
-					alt="hero"
-				/>
-				<Link href="/pikasoja">
-					<button className="absolute bottom-5 bg-black text-white px-6 py-3 font-medium rounded-md">
-						Explore
-					</button>
-				</Link>
-			</div>
 			{/* // Featured products section */}
-
-			<div className="bg-[#bebebe] py-8 flex flex-col items-center justify-center">
-				<h2 className="text-4xl font-medium text-center border-b-2 border-black text-black">
+			<div className=" text-xl/snug md:text-4xl/snug lg:text-5xl/snug bg-[#bebebe] py-8 flex flex-col items-center justify-center ">
+				<h2 className="font-mont font text-center border-b border-black text-black w-6/12">
 					Featured Products
 				</h2>
-				<p className="text-center font-normal text-3xl text-black">PikaSoja</p>
+				<p className="text-center font-mont lg:text-4xl/loose md:text-3xl/loose text-lg/loose text-black">PikaSoja</p>
+				<div className="w-[400px] h-[350px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px] relative ">
 				<Image
+					objectFit="contain"
+					fill={true}
 					className="py-4"
 					src="/images/pikasoja.jpg"
-					width={300}
-					height={400}
 					alt="hero"
 				/>
+				</div>
 			</div>
 		</section>
 	);

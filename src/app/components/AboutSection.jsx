@@ -48,16 +48,17 @@ const AboutSection = () => {
 		});
 	};
 	return (
-		<section  className="bg-white py-8 flex items-left justify-left">
+		<container  class="bg-[#bebebe]  py-8 font-mont flex items-top justify-center">
 			{/* Welcome Header */}
-			<div id="about" className="py-8 px-8 text-black">
-				<h2 className="text-4xl font-medium text-left   text-black">
+			<div id="about" className="py-8 px-8  text-black">
+				<h2 className="text-4xl  text-left  tracking-wide text-black">
 					Welcome to Khoi
 				</h2>
-				<p className="font-light text-xl border-b-2 border-black text-black">
+				<p className="text-lg font-thin border-b-2 text-[#1a1b1f] text-opacity-60 border-black text-center">
 					It's a one person show
 				</p>
-                <div className="flex flex-row text-black">
+				
+                <div className="flex flex-row text-black justify-center">
                 <TabButton
 					selectTab={() => handleTabChange("skills")}
 					active={tab === "skills"}
@@ -80,16 +81,17 @@ const AboutSection = () => {
                 <div className="mt-8">{TAB_DATA.find((t) => t.id === tab).content}</div>
 
 			</div>
-            <div className="flex align-left relative">
+            <div className="w-[400px] h-[550px] md:w-[100px] md:h-[300px] lg:w-[500px] lg:h-[400px] relative
+			 ">
 			<Image
-				className=""
+
 				src={"/images/khoi.jpg"}
-				width={400}
-				height={500}
+				objectFit="contain"
+				fill={true}
 				alt="hero"
 			/>
             </div>
-		</section>
+		</container>
 	);
 };
 
