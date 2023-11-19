@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
@@ -49,9 +48,11 @@ const AboutSection = () => {
 		});
 	};
 	return (
-		<div class="bg-[#bebebe]  pt-8 flex flex-col items-top items-center justify-center">
+
+		
+		<div id="about" className="pt-12 md:pt-16 bg-[#bebebe] flex flex-col items-top items-center justify-center">
 			{/* Welcome Header */}
-			<div id="about" className="py-2 px-8 w-full sm:w-3/4 text-black">
+			<div  className="py-2 px-8 w-full sm:w-3/4 text-black">
 				<h1 className="text-3xl sm:text-5xl font-light  text-center tracking-wide text-black">
 					Welcome to Khoi
 				</h1>
@@ -95,12 +96,14 @@ const AboutSection = () => {
 			   w-[400px] h-[550px] md:w-[500px] md:h-[500px] lg:w-[500px] lg:h-[500px] relative
 			 "
 			>
+				
 				<Image
 					src={"/images/khoi.jpg"}
 					objectFit="contain"
 					fill={true}
 					alt="hero"
 				/>
+				
 			</div>
 		</div>
 	);
