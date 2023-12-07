@@ -13,11 +13,11 @@ const ProductPage = () => {
 				<div className="max-w-min col-span-2 lg:place-self-end place-self-center mt-10">
 				<Carousel className="">
 					<div>
-						<img src="/images/pikasoja.JPG" alt="image1" />
+						<img src="/images/pikasoja.jpg" alt="image1" />
 						
 					</div>
 					<div>
-						<img src="/images/khoi.JPG" alt="image2" />
+						<img src="/images/khoi.jpg" alt="image2" />
 						
 					</div>
 					<div>
