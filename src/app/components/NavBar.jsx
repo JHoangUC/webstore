@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState , useRef , useEffect } from "react";
+import React, { useState , useRef } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";

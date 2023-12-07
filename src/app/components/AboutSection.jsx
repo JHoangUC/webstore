@@ -101,7 +101,7 @@ const AboutSection = () => {
 					src={"/images/khoi.jpg"}
 					objectFit="contain"
 					fill={true}
-					alt="hero"
+					
 				/>
 				
 			</div>

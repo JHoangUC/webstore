@@ -25,7 +25,7 @@ const Homepage = () => {
 								fill={true}
 								className="py-4"
 								src="/images/pikasoja.jpg"
-								alt="hero"
+								alt="PikaSoja"
 							/>
 						
 				{/* Product Description */}
