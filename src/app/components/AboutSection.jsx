@@ -98,7 +98,7 @@ const AboutSection = () => {
 			>
 				
 				<Image
-					src={"/images/khoi.jpg"}
+					src={"/images/khoi.JPG"}
 					objectFit="contain"
 					fill={true}
 					
