@@ -1,23 +1,37 @@
-import React from "react";
+"use client";
+import React, { Component } from "react";
 import Image from "next/image";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from 'react-responsive-carousel'; 
 
 const ProductPage = () => {
 	return (
-		<section className=" min-h-screen flex-col bg-[#fafafa] text-black">
+		<section className=" min-h-screen bg-[#bebebe] text-black">
 			{" "}
-			<section className="px-8 py-8 flex">
-				<Image
-					className=""
-					src={"/images/pikasoja.jpg"}
-					width={300}
-					height={400}
-					alt="hero"
-				/>
+			<div className="grid grid-cols-1 sm:grid-cols-4 ">
+				{/* Image Carousel */}
+				<div className="max-w-min col-span-2 lg:place-self-end place-self-center mt-10">
+				<Carousel className="">
+					<div>
+						<img src="/images/pikasoja.jpg" alt="image1" />
+						
+					</div>
+					<div>
+						<img src="/images/khoi.jpg" alt="image2" />
+						
+					</div>
+					<div>
+						<img src="/images/hompage-background.jpg" alt="image3" />
+						
+					</div>
+				</Carousel>
+				</div>
+
 				{/* Product Heading */}
-				<div className=" px-11 py-11">
+				<div className="flex flex-col py-11  place-self-center ">
 					<h1 className="text-4xl font-bold text-left text-black">PikaSoja</h1>
 					<h6 className="text-xl py-2 font-light text-left text-black">
-						$7.00 + Free Shipping
+						$6.99 + Free Shipping
 					</h6>
 					<p className="text-sm py-2 font-light text-left text-black">
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -52,8 +66,8 @@ const ProductPage = () => {
 						<div className="py-2">
 							<hr
 								style={{
-									background: "bg-[#bebebe]",
-									color: "bg-[#bebebe]",
+									background: "black",
+									color: "black",
 									height: "2px",
 								}}
 							/>
@@ -61,12 +75,19 @@ const ProductPage = () => {
 					</div>
 					{/* Add to Cart */}
 					<div className="py-2">
-						<button className="bg-black text-white px-6 py-3 font-medium rounded-md">
-							Buy Now
-						</button>
+						<a
+							target="_blank"
+							href="https://buy.stripe.com/fZe4hB4no6ejaNWfYY"
+							rel="noopener noreferrer"
+						>
+							<button className="bg-black text-white px-6 py-3 font-medium rounded-md">
+								Buy Now
+							</button>
+						</a>
 					</div>
+
 				</div>
-			</section>
+			</div>
 		</section>
 	);
 };
