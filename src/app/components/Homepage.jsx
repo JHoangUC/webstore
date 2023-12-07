@@ -24,8 +24,8 @@ const Homepage = () => {
 								objectFit="contain"
 								fill={true}
 								className="py-4"
-								src="/images/pikasoja.JPG"
-								alt="PikaSoja"
+								src="/images/pikasoja.jpg"
+								alt="hero"
 							/>
 						
 				{/* Product Description */}
