@@ -99,9 +99,12 @@ const AboutSection = () => {
 				
 				<Image
 					src={"/images/khoi.jpg"}
-					objectFit="contain"
-					fill={true}
-					alt="hero"
+					// objectFit="contain"
+					// fill={true}
+					width={0}
+					height={0}
+					sizes="100%"
+					style={{ width:"100%", height: "100%" }}
 				/>
 				
 			</div>

@@ -1,7 +1,7 @@
 import ProductPage from "../../components/ProductPage";
 import NavBar from "../../components/NavBar";
 
-export default function Home() {
+export default function PikaSoja() {
 	return (
 		<main className="flex min-h-screen flex-col">
 			<NavBar />
