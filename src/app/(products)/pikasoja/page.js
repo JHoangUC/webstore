@@ -6,7 +6,7 @@ export default function Home() {
 		<main className="flex min-h-screen flex-col">
 			<NavBar />
 
-			<div class="">
+			<div class="md: md:pt-20 pt-8">
 				<ProductPage />
 			</div>
 		</main>

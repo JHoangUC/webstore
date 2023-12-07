@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState , useRef } from "react";
+import React, { useState , useRef , useEffect } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
@@ -30,8 +30,14 @@ const Navbar = () => {
 			setNavbarOpen(false)
 		}
 	}
+	// useEffect(() => {
+	// 	if(navbarOpen){
+			
+	// 	document.addEventListener('mousedown',closeOpenMenus)
+	// 	}
+
+	// }, [])
 	// Listen for click outside of menu | Tracking Mouse
-	document.addEventListener('mousedown',closeOpenMenus)
 
 	return (
 		<nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
