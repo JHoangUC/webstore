@@ -56,9 +56,9 @@ const Navbar = () => {
 					{!navbarOpen ? (
 						<button
 							onClick={() => setNavbarOpen(true)}
-							className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white hover:cursor-pointer"
+							className=" items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white "
 						>
-							<Bars3Icon className="h-5 w-5" />
+							<Bars3Icon className="h-5 w-5 " />
 						</button>
 					) : (
 						// Close Icon XMarkIcon

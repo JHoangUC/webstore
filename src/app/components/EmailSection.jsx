@@ -9,7 +9,7 @@ const EmailSection = () => {
 	return (
 		<section
 			id="contact"
-			className=" grid md:grid-cols-1   my-12 md:my-12 lg:py-24 lg:px-72 md:px-32 w-full "
+			className=" grid lg:grid-cols-2 md:grid-cols-1   my-12 md:my-12 lg:py-24 lg:px-72 md:px-32 w-full "
 		>
 			<div className="z-10">
 				<h5 className="text-xl font-bold text-black my-2">
