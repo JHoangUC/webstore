@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel'; 
+import "../css/product.css";
 
 const ProductPage = () => {
 	return (
-		<section className=" min-h-screen bg-[#bebebe] text-black">
+		<section id="google" className="min-h-screen bg-[#bebebe] text-black">
 			{" "}
 			<div className="grid grid-cols-1 sm:grid-cols-4 ">
 				{/* Image Carousel */}
@@ -28,8 +29,8 @@ const ProductPage = () => {
 				</div>
 
 				{/* Product Heading */}
-				<div className="flex flex-col py-11  place-self-center ">
-					<h1 className="text-4xl font-bold text-left text-black">PikaSoja</h1>
+				<div id="fullPage" className="flex flex-col place-self-center ">
+					<h1  className="text-4xl  text-left text-black">PikaSoja</h1>
 					<h6 className="text-xl py-2 font-light text-left text-black">
 						$6.99 + Free Shipping
 					</h6>
