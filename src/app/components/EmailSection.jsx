@@ -9,13 +9,13 @@ const EmailSection = () => {
 	return (
 		<section
 			id="contact"
-			className=" grid md:grid-cols-2   my-12 md:my-12 py-24 px-72 w-full "
+			className=" grid md:grid-cols-1   my-12 md:my-12 lg:py-24 lg:px-72 md:px-32 w-full "
 		>
 			<div className="z-10">
 				<h5 className="text-xl font-bold text-black my-2">
 					Let&apos;s Connect
 				</h5>
-				<p className="text-black mb-4 max-w-md">
+				<p className="text-black mb-4 max-w-md hover:cursor-default">
 					{" "}
 					I&apos;m currently looking for new opportunities, my inbox is always
 					open. Whether you have a question or just want to say hi, I&apos;ll
@@ -35,7 +35,7 @@ const EmailSection = () => {
 
 					<form className="flex flex-col" action="https://api.web3forms.com/submit" method="POST">
 						<input type="hidden" name="apikey" value="6d440886-061e-4018-8df1-f1ad2e9a7c0d"/>
-						<div className="mb-6">
+						<div className="mb-6 md:mt-9">
 							<label
 								htmlFor="email"
 								className=" text-black block mb-2 text-sm font-medium"
