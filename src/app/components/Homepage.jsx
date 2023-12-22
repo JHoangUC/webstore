@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Homepage = () => {
 	return (
-		<section className="flex  flex-col bg-[#bebebe]">
+		<section id="products" className="flex  flex-col bg-[#bebebe]">
 			{/* // Featured products section */}
 			<div className="  bg-[#bebebe] py-8 flex flex-col items-center justify-center">
 				<div className="md:w-3/5">

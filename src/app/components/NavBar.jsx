@@ -4,19 +4,20 @@ import React, { useState , useRef } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import "../css/main.css";
 
 const navLinks = [
 	{
 		title: "About",
-		path: "#about",
+		path: "/#about",
 	},
 	{
-		title: "Projects",
-		path: "#projects",
+		title: "Products",
+		path: "/#products",
 	},
 	{
 		title: "Contact",
-		path: "#contact",
+		path: "/contact",
 	},
 ];
 
@@ -44,9 +45,9 @@ const Navbar = () => {
 			<div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
 				<Link
 					href={"/"}
-					className="text-2xl md:text-5xl text-white font-semibold"
+					className="text-2xl md:text-3xl lg:text-5xl text-white font-semibold"
 				>
-					LOGO
+					Designs By Khoi
 				</Link>
 				{/* Hamburger Menu Bars3Icon*/}
 				{/* ref - pointer to function */}

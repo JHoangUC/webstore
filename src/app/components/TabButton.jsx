@@ -7,7 +7,7 @@ const variants = {
 };
 
 const TabButton = ({ active, selectTab, children }) => {
-	const buttonClasses = active ? "opacity-60 text-gray-700 border-b-2 border-gray-400 bg-gray-100" : "text-black";
+	const buttonClasses = active ? "opacity-60 text-gray-700 font-bold border-b-2 border-gray-400 bg-gray-100" : "text-black";
 
 	return (
 		<button onClick={selectTab}>
@@ -15,7 +15,7 @@ const TabButton = ({ active, selectTab, children }) => {
 				className={
 							`pt-3 bg-[#bebebe] h-15 shadow-none flex-grow 
 							inline-block p-4 border-black 
-							hover:text-gray-600 hover:border-gray-300
+							hover:text-gray-600 hover:border-gray-300 
 							
 	${buttonClasses}`}
 			>
