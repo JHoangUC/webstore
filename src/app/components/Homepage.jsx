@@ -1,9 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Homepage = () => {
+	const [isHovering, setIsHovered] = useState(false);
+	const onMouseEnter = () => setIsHovered(true);
+	const onMouseLeave = () => setIsHovered(false);
 	return (
 		<section id="products" className="flex  flex-col bg-[#bebebe]">
 			{/* // Featured products section */}
@@ -17,24 +20,45 @@ const Homepage = () => {
 					PikaSoja
 				</p>
 				<container className="relative">
-
-					<div className="w-[400px] h-[350px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px]   relative ">
+					<div
+						className="w-[400px] h-[350px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px]   relative "
+						onMouseEnter={onMouseEnter}
+						onMouseLeave={onMouseLeave}
+					>
 						<Link href="/pikasoja">
-							<Image 
+							{isHovering ? (
+								<Image
+									objectFit="contain"
+									fill={true}
+									className="py-4 "
+									src="/images/Pinecone.jpg"
+									alt="hero"
+								/>
+							) : (
+								<Image
+									objectFit="contain"
+									fill={true}
+									className="py-4 "
+									src="/images/flower.jpg"
+									alt="hero"
+								/>
+							)}
+							{/* <Image 
 								objectFit="contain"
 								fill={true}
 								className="py-4 "
 								src="/images/flower.jpg"
 								alt="hero"
-							/>
-						
-				{/* Product Description */}
-						<p className="absolute font-normal text-white-200 py-16 
-						 top-full md:left-1/4 left-32 -translate-y-full
-						"> {'<'}3 Soju</p>
-						<p className="absolute font-light text-white-200 py-8 
-						 top-full md:left-1/4 left-32 -translate-y-full
-						">$6.99</p>
+							/> */}
+
+							{/* Product Description */}
+							<p className="absolute font-normal text-white-200 py-16 top-full md:left-1/4 left-32 -translate-y-full">
+								{" "}
+								{"<"}3 Soju
+							</p>
+							<p className="absolute font-light text-white-200 py-8top-full md:left-1/4 left-32 -translate-y-full">
+								$6.99
+							</p>
 						</Link>
 					</div>
 				</container>

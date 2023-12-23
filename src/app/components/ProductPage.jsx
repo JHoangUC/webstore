@@ -81,7 +81,7 @@ const ProductPage = () => {
 							href="https://buy.stripe.com/fZe4hB4no6ejaNWfYY"
 							rel="noopener noreferrer"
 						>
-							<button className="bg-black text-white px-6 py-3 font-medium rounded-md">
+							<button className="bg-black text-white px-6 py-3 font-medium rounded-md hover:bg-slate-600">
 								Buy Now
 							</button>
 						</a>
