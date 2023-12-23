@@ -53,12 +53,12 @@ const Homepage = () => {
 
 							{/* Product Description */}
 							<p
-								className="absolute font-normal text-white-200 py-16 top-full md:left-1/4 left-32 -translate-y-full">
+								className="absolute font-bold text-white py-16 top-full md:left-1/4 left-32 -translate-y-full">
 								{" "}
 								{"<"}3 Soju
 							</p>
 							<p
-								className="absolute font-light text-white-200 py-8 top-full md:left-1/4 left-32 -translate-y-full">
+								className="absolute font-bold text-white py-8 top-full md:left-1/4 left-32 -translate-y-full">
 								$6.99
 							</p>
 						</Link>
