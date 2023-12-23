@@ -9,13 +9,13 @@ const EmailSection = () => {
 	return (
 		<section
 			id="contact"
-			className=" grid lg:grid-cols-2 md:grid-cols-1   my-12 md:my-12 lg:py-24 lg:px-72 md:px-32 w-full "
+			className=" grid lg:grid-cols-2 md:grid-cols-1 my-12 md:my-12 lg:py-24 lg:px-72 md:px-32"
 		>
-			<div className="z-10">
-				<h5 className="text-xl font-bold text-black my-2">
+			<div className="z-10 ">
+				<h5 className="md:text-xl sm:text-lg font-bold text-black my-2">
 					Let&apos;s Connect
 				</h5>
-				<p className="text-black mb-4 max-w-md hover:cursor-default">
+				<p className="text-black text-sm mb-4 md:max-w-md hover:cursor-default">
 					{" "}
 					I&apos;m currently looking for new opportunities, my inbox is always
 					open. Whether you have a question or just want to say hi, I&apos;ll

@@ -18,23 +18,23 @@ const Homepage = () => {
 				</p>
 				<container className="relative">
 
-					<div className="w-[400px] h-[350px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px] relative ">
+					<div className="w-[400px] h-[350px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px]   relative ">
 						<Link href="/pikasoja">
-							<Image
+							<Image 
 								objectFit="contain"
 								fill={true}
-								className="py-4"
-								src="/images/pikasoja.jpg"
+								className="py-4 "
+								src="/images/flower.jpg"
 								alt="hero"
 							/>
 						
 				{/* Product Description */}
-						<p className="absolute font-normal text-gray-200 py-16 
+						<p className="absolute font-normal text-white-200 py-16 
 						 top-full md:left-1/4 left-32 -translate-y-full
 						"> {'<'}3 Soju</p>
-						<p className="absolute font-light text-gray-200 py-8 
+						<p className="absolute font-light text-white-200 py-8 
 						 top-full md:left-1/4 left-32 -translate-y-full
-						">$7.00</p>
+						">$6.99</p>
 						</Link>
 					</div>
 				</container>

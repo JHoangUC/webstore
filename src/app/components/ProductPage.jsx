@@ -13,29 +13,29 @@ const ProductPage = () => {
 				{/* Image Carousel */}
 				<div className="max-w-min col-span-2 lg:place-self-end place-self-center mt-10">
 				<Carousel className="">
-					<div>
-						<img src="/images/pikasoja.jpg" alt="image1" />
+					<div className="border-white border-4 rounded-md">
+						<img src="/images/flower.jpg" alt="image1" />
 						
 					</div>
-					<div>
-						<img src="/images/khoi.jpg" alt="image2" />
+					<div className="border-white border-4 rounded-md">
+						<img src="/images/Pinecone.jpg" alt="image2" />
 						
 					</div>
-					<div>
-						<img src="/images/hompage-background.jpg" alt="image3" />
+					<div className="border-white border-4 rounded-md">
+						<img src="/images/alot.jpg" alt="image3" />
 						
 					</div>
 				</Carousel>
 				</div>
 
 				{/* Product Heading */}
-				<div id="fullPage" className="flex flex-col place-self-center ">
+				<div id="fullPage" className="flex flex-col w-3/4 place-self-center ">
 					<h1  className="text-4xl  text-left text-black">PikaSoja</h1>
 					<h6 className="text-xl py-2 font-light text-left text-black">
 						$6.99 + Free Shipping
 					</h6>
 					<p className="text-sm py-2 font-light text-left text-black">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Drooling dreams of  raving electric cuteness.
 					</p>
 					{/* Line Divider */}
 					<div className="py-2">
@@ -55,12 +55,12 @@ const ProductPage = () => {
 						>
 							<tbody>
 								<tr>
-									<td>Description</td>
-									<td>.01</td>
+									<td>Size</td>
+									<td>2 in x 1 in</td>
 								</tr>
 								<tr>
 									<td>Weight</td>
-									<td>.01</td>
+									<td>.01 oz</td>
 								</tr>
 							</tbody>
 						</table>
