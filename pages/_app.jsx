@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import CartProvider from '../context/CartContext'
 import FrontPageTop from "../components/FrontPageTop";
 import AboutSection from "../components/AboutSection";
-
+import Footer from "../components/Footer";
 import Homepage from "../components/Homepage";
 import { useRouter } from 'next/router';
 
@@ -25,6 +25,7 @@ function App({ Component, pageProps }) {
         )}
        
         <Component {...pageProps} />
+        
       </Layout>
     </CartProvider>
     

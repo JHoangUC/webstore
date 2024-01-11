@@ -56,7 +56,7 @@ const EmailSection = () => {
   return (
     <section
       id='contact'
-      className='grid lg:grid-cols-2 md:grid-cols-1 my-12 md:my-12 lg:py-24 lg:px-72 md:px-32'
+      className='grid lg:grid-cols-2 md:grid-cols-1 my-12 md:my-12 lg:py-36 md:py-16 sm:py-28 lg:px-72 md:px-32'
     >
       <div className='z-10 '>
         <h5 className='md:text-xl sm:text-lg font-bold text-black my-2'>

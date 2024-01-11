@@ -50,10 +50,10 @@ const Header = ({ setCartSliderIsOpen }) => {
           {/* //////////////////////// */}
         <div className='flex items-center gap-4'>
           {/* //////////////////////// adds additional header options*/}
-          <MagnifyingGlassIcon
+          {/* <MagnifyingGlassIcon
             onClick={() => setOpen(open => !open)}
             className='mt-1 h-5 w-5 cursor-pointer text-sky-700 group-hover:text-sky-800'
-          />
+          /> */}
           <div className='ml-4 flow-root lg:ml-8'>
             <div
               className='group p-2 flex items-center cursor-pointer'
