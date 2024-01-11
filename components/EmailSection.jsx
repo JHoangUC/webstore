@@ -134,7 +134,7 @@ const EmailSection = () => {
             >
               Message
             </label>
-            <span type='input' role='textbox' contenteditable>
+            <span type='input' role='textbox' contentEditable>
               <textarea
                 name='message'
                 id='message'
