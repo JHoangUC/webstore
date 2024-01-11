@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Card from '../../components/Card'
 import Stripe from 'stripe'
 
-export default function id({ prices: { data = [] } }) {
+export default function Id({ prices: { data = [] } }) {
   const router = useRouter()
   const id = router.query.id
   const key = router.query.price

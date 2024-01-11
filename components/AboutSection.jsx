@@ -10,7 +10,7 @@ const TAB_DATA = [
 		id: "skills",
 		content: (
 			<p>
-				I'm John, the one-person show behind Khoi. I'm on a mission to share my
+				I&apos;m John, the one-person show behind Khoi. I&apos;m on a mission to share my
 				passion for design and tech with you through these amazing stickers.
 			</p>
 		),
@@ -20,7 +20,7 @@ const TAB_DATA = [
 		id: "education",
 		content: (
 			<p>
-				Stickers aren't just paper and adhesive to me; they're tiny canvases of
+				Stickers aren&apos;t just paper and adhesive to me; they&apos;re tiny canvases of
 				self-expression. I pour my heart and soul into each design, hoping to
 				bring a little bit of joy, inspiration, and color to your life.
 			</p>
@@ -60,7 +60,7 @@ const AboutSection = () => {
 							Welcome to Khoi
 						</h1>
 						<p className=" lg:text-4xl md:text-xl text-md font-normal text-[#1a1b1f] text-opacity-60  border-b-2 border-black text-center">
-							It's a one person show
+							It&apos;s a one person show
 						</p>
 					</div>
 
@@ -107,7 +107,7 @@ const AboutSection = () => {
 						<Image
 							className="object-scale-down"
 							src={Khoi}
-							layout='fill'
+							layout="fill"
 
 								
 							alt="me"
