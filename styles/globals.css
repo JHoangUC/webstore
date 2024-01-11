@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Rubik+Scribble&display=swap');
+ 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,#aboutSection, #fullPage, .header{
+    font-family: 'Rubik Doodle Shadow';
+}
