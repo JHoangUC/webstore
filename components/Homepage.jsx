@@ -16,9 +16,9 @@ const Homepage = () => {
 						Featured Products
 					</h2>
 				</div>
-				{/* <p className="text-center font-light lg:text-4xl/loose md:text-3xl/loose text-xl/loose text-black">
-					Enjoy!
-				</p> */}
+				<p className="text-center font-light lg:text-3xl/loose md:text-2xl/loose text-xl/loose text-black">
+					All Stickers are 3 in x 3 in
+				</p>
 				{/* <container className="relative">
 					<div
 						className="w-[400px] h-[350px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px]   relative "
