@@ -19,6 +19,7 @@ export default function Id({ prices: { data = [] } }) {
           <Card key={price.id} price={price} />
         ))}
       </div>
+      
       <h1>id: {id}</h1>
       <h1>key: {key}</h1>
     </>

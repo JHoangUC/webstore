@@ -1,7 +1,7 @@
 import Stripe from 'stripe'
 import Card from '../components/Card'
 import { useState } from 'react'
-import Link from 'next/link';
+// import Link from 'next/link';
 
 
 
@@ -38,11 +38,11 @@ const HomePage = ({ prices: { data = [], has_more } }) => {
         <div className='mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8'>
 
           {products.map(price => (
-            <Link href={`/product/${price.id}`} key={price.id}  >
-          <div style={{ cursor: 'pointer' }}>
+          //   <Link href={`/product/${price.id}`} key={price.id}  >
+          // <div style={{ cursor: 'pointer' }}>
             <Card key={price.id} price={price} />
-          </div>
-           </Link> 
+          // </div>
+          //  </Link> 
           ))}
           
         </div>

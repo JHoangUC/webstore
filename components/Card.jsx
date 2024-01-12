@@ -27,6 +27,7 @@ const Card = ({ price }) => {
 
   return (
     <div>
+      
       <div className='relative'>
         <div className='relative w-full h-72 rounded-lg overflow-hidden'
         >
