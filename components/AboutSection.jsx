@@ -57,10 +57,11 @@ const AboutSection = () => {
 		  <div className='md:grid md:grid-cols-1'>
 			{/* Welcome Header */}
 			<div className='py-2 px-8  text-black font-normal'>
-			  <h1 className='text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black'>//text-red-500
+				{/* //text-red-500 */}
+			  <h1 className='text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black'>
 				Welcome to Khoi
-			  </h1>
-			  <p className=' lg:text-4xl md:text-xl text-md font-normal text-black text-opacity-60  border-b-2 border-black text-center'>//text-[#726127]
+			  </h1>//text-[#726127]
+			  <p className=' lg:text-4xl md:text-xl text-md font-normal text-black text-opacity-60  border-b-2 border-black text-center'>
 				It&apos;s a one person show
 			  </p>
 			</div>
