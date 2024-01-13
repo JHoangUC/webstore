@@ -1,12 +1,12 @@
 'use client'
 import React, { useState } from 'react'
 import InstagramIcon from '../public/instagram.svg'
-import LinkedinIcon from '../public/tiktok-icon.png'
+import LinkedinIcon from '../public/meta.svg'
 import Link from 'next/link'
 import Image from 'next/image'
 
 const EmailSection = () => {
-  const [formData, setFormData] = useState({
+  		const [formData, setFormData] = useState({
     email: '',
     subject: '',
     message: ''
@@ -58,34 +58,24 @@ const EmailSection = () => {
       id='contact'
       className='grid lg:grid-cols-2 md:grid-cols-1 my-12 md:my-12 lg:py-36 md:py-16 sm:py-28 lg:px-72 md:px-32'
     >
-      
       <div className='z-10 '>
         <h5 className='md:text-xl sm:text-lg font-bold text-black my-2'>
           Let&apos;s Connect
         </h5>
         <p className='text-black text-sm mb-4 md:max-w-md hover:cursor-default'>
-          Hey there! 👋
-          <br /> Have any questions or special requests? 🎤 <br /> Feel free to
-          shoot me a message here! 🌟 <br /> I&apos;m always open to suggestions
-          or criticism 🎯
+          I&apos;m currently looking for new opportunities, my inbox is always
+          open. Whether you have a question or just want to say hi, I&apos;ll
+          try my best to get back to you!
         </p>
         <div className='socials flex flex-row gap-2 '>
-          <Link href='https://www.instagram.com/designsbykhoi/' target='_blank'>
-            <Image
-              className=' cursor-pointer'
-              src={InstagramIcon}
-              alt='Github Icon'
-            />
+          <Link href='https://github.com/JHoangUC' target='_blank'>
+            <Image src={InstagramIcon} alt='Github Icon' />
           </Link>
           <Link
             href='https://www.linkedin.com/in/john-hoang-848a031a1/'
             target='_blank'
           >
-            <Image
-              className=' cursor-pointer'
-              src={LinkedinIcon}
-              alt='Linkedin Icon'
-            />
+            <Image src={LinkedinIcon} alt='Linkedin Icon' />
           </Link>
         </div>
       </div>
@@ -144,15 +134,17 @@ const EmailSection = () => {
             >
               Message
             </label>
-            <textarea
-              name='message'
-              id='message'
-              rows='10'
-              value={formData.message}
-              onChange={handleChange}
-              className='bg-gray-200 border placeholder-[#9CA2A9] text-black text-sm rounded-lg block w-full p-2.5'
-              placeholder=''
-            />
+            <span type='input' role='textbox' contentEditable>
+              <textarea
+                name='message'
+                id='message'
+                rows='10'
+                value={formData.message}
+                onChange={handleChange}
+                className='bg-gray-200 border placeholder-[#9CA2A9] text-black text-sm rounded-lg block w-full p-2.5'
+                placeholder=''
+              />
+            </span>
           </div>
           <button
             type='submit'

@@ -15,7 +15,7 @@ const FrontPageTop = () => {
 
         
     />
-        <div className="absolute lg:bottom-20 md:bottom-72 sm:bottom-1/2 transform -translate-y-1/2 w-full text-center">
+        <div className="absolute bottom-20 transform -translate-y-1/2 w-full text-center">
           <a className="bg-black text-white py-3 px-6 rounded-md font-light text-lg"
          href='#about'>
             Explore
