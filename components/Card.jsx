@@ -26,43 +26,47 @@ const Card = ({ price }) => {
   }, [error])
 
   return (
-    <div>
+    <div className='border-[#bebebe] border-2 p-10 drop-shadow-xl bg-white rounded-xl'>
       
       <div className='relative'>
+      <div className='relative mt-4'>
+          <h3 className='text-xl font-semibold text-black'>{product.name}</h3>
+          <p className='mt-1 mb-3 text-sm font-bold text-gray-700'>{product.description}</p>
+        </div>
         <div className='relative w-full h-72 rounded-lg overflow-hidden '
         >
           <Image
-
+            
             src={product.images[0]}
             alt={product.description}
             className='object-scale-down '
             layout='fill'
           />
         </div>
-        <div className='relative mt-4'>
-          <h3 className='text-sm font-medium text-gray-900'>{product.name}</h3>
-          <p className='mt-1 text-sm text-gray-500'>{product.description}</p>
-        </div>
+
         <div className='absolute top-0 inset-x-0 h-72 rounded-lg p-4 flex items-end justify-end overflow-hidden'>
           <div
             aria-hidden='true'
-            className='absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50'
+            // bg-gradient-to-t from-black opacity-50
+            className='absolute inset-x-0 bottom-0 h-36 '
           />
-          <p className='relative text-lg font-semibold text-white font-sans'>
-            {(unit_amount / 100).toLocaleString('en-CA', {
+
+        </div>
+      </div>
+      <p className='relative text-lg font-semibold text-black font-sans'>
+            {(unit_amount / 100).toLocaleString('en-CA',  {
               style: 'currency',
               currency: 'USD'
             })}
           </p>
-        </div>
-      </div>
       <div className='mt-6'>
+        
         <button
           onClick={e => {
             e.stopPropagation() // Prevent parent Link from triggering
             addItemToCart(price)
           }}
-          className='relative flex z-10 bg-gray-100 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-200'
+          className='relative flex z-10 bg-[#dfdbdb] border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-semibold text-gray-900 hover:bg-gray-200'
         >
           Add to Cart<span className='sr-only'>, {product.name}</span>
         </button>
