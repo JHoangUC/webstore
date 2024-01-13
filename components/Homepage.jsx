@@ -8,7 +8,7 @@ const Homepage = () => {
 	const onMouseEnter = () => setIsHovered(true);
 	const onMouseLeave = () => setIsHovered(false);
 	return (
-		<section id="products" className="flex  flex-col bg-[white]">
+		<section id="products" className="flex  flex-col bg-[#f5f5f5]">
 			{/* // Featured products section */}
 			<div className="  pt-12 flex flex-col items-center justify-center">
 				<div className="md:w-3/5">

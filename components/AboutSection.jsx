@@ -52,7 +52,7 @@ const AboutSection = () => {
 	  <section className='relative' id='aboutSection'>
 		<div
 		  id='about'
-		  className='pt-12 md:pt-16 bg-[white] md:flex md:flex-row sm:flex-col items-top items-center justify-center'
+		  className='pt-12 md:pt-16 bg-[#f5f5f5] md:flex md:flex-row sm:flex-col items-top items-center justify-center'
 		>
 		  <div className='md:grid md:grid-cols-1'>
 			{/* Welcome Header */}
