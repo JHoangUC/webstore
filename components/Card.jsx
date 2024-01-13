@@ -29,13 +29,13 @@ const Card = ({ price }) => {
     <div>
       
       <div className='relative'>
-        <div className='relative w-full h-72 rounded-lg overflow-hidden'
+        <div className='relative w-full h-72 rounded-lg overflow-hidden '
         >
           <Image
-          
+
             src={product.images[0]}
             alt={product.description}
-            className='object-scale-down'
+            className='object-scale-down '
             layout='fill'
           />
         </div>
@@ -48,7 +48,7 @@ const Card = ({ price }) => {
             aria-hidden='true'
             className='absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50'
           />
-          <p className='relative text-lg font-semibold text-white'>
+          <p className='relative text-lg font-semibold text-white font-sans'>
             {(unit_amount / 100).toLocaleString('en-CA', {
               style: 'currency',
               currency: 'USD'
