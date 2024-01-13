@@ -12,12 +12,15 @@ const Homepage = () => {
 			{/* // Featured products section */}
 			<div className="  pt-12 flex flex-col items-center justify-center">
 				<div className="md:w-3/5">
-					<h2 className=" text-3xl/snug md:text-4xl/snug lg:text-5xl/snug font-light text-center border-b-2 border-black text-black">
+					<h2 className=" text-3xl/snug md:text-4xl/snug lg:text-5xl/snug font-light text-center border-b-2 border-black text-[#4ac555] ">
 						Featured Products
 					</h2>
 				</div>
-				<p className="text-center font-light lg:text-3xl/loose md:text-2xl/loose text-xl/loose text-black">
+				<p className="text-center font-light lg:text-3xl/loose md:text-2xl/loose text-xl/loose text-[#3844b3]">
 					All Stickers are 3 in x 3 in
+				</p>
+				<p className="text-center font-light lg:text-2xl/loose md:text-xl/loose text-l/loose text-[#ff2b2b]">
+					Free Shipping
 				</p>
 				{/* <container className="relative">
 					<div
