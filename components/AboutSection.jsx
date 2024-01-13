@@ -96,7 +96,7 @@ const AboutSection = () => {
 							TAB DATA*/}
 						<div
 							id="about-table-data"
-							className=' text-blue-700 lg:max-w-2xl md:max-w-md  md:text-lg sm:text-sm  border-gray-300 border-4 bg-gray-200 
+							className=' text-black lg:max-w-2xl md:max-w-md  md:text-lg sm:text-sm  border-gray-300 border-4 bg-gray-200 
 									rounded-xl p-4 m-4 drop-shadow-lg text-center'
 						>
 							{TAB_DATA.find((t) => t.id === tab).content}
