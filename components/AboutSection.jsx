@@ -21,9 +21,9 @@ const TAB_DATA = [
     content: (
       <p>
         As a kid, I started making graphics using clip art 🎨 and even sold
-        tropical fish from home 🎁 Now, I've
+        tropical fish from home 🎁 Now, I&apos;ve
         added programming to the mix <br/> So, 
-		this store is really just a collection of those things I've enjoyed doing and learning along the way! 🌟
+		this store is really just a collection of those things I&apos;ve enjoyed doing and learning along the way! 🌟
       </p>
     )
   },
