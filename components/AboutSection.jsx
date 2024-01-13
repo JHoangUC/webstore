@@ -5,64 +5,65 @@ import TabButton from "./TabButton";
 import Khoi from "./../public/images/khoi.jpg"
 
 const TAB_DATA = [
-	{
-		title: "About Me",
-		id: "skills",
-		content: (
-			<p>
-				I&apos;m John, the one-person show behind Khoi. I&apos;m on a mission to share my
-				passion for design and tech with you through these amazing stickers.
-			</p>
-		),
-	},
-	{
-		title: "Why Stickers?",
-		id: "education",
-		content: (
-			<p>
-				Stickers aren&apos;t just paper and adhesive to me; they&apos;re tiny canvases of
-				self-expression. I pour my heart and soul into each design, hoping to
-				bring a little bit of joy, inspiration, and color to your life.
-			</p>
-		),
-	},
-	{
-		title: "Support",
-		id: "experience",
-		content: (
-			<p>
-				This store is a labor of love, and every purchase directly supports an
-				independent artist and developer like me. Your support keeps the dream
-				alive and the stickers flowing!
-			</p>
-		),
-	},
-];
+  {
+    title: 'About Me',
+    id: 'skills',
+    content: (
+      <p>
+        I&apos;m John 😊 the one-person show behind Designs By Khoi 🎈  <br /> but
+        I&apos;m just a university student with a desire to succeed in life 🚀
+      </p>
+    )
+  },
+  {
+    title: 'Why Stickers?',
+    id: 'education',
+    content: (
+      <p>
+        As a kid, I started making graphics using clip art 🎨 and even sold
+        tropical fish from home 🎁 Now, I&apos;ve
+        added programming to the mix <br/> So, 
+		this store is really just a collection of those things I&apos;ve enjoyed doing and learning along the way! 🌟
+      </p>
+    )
+  },
+  {
+    title: 'Support',
+    id: 'experience',
+    content: (
+      <p>
+        🚀This store marks my first step towards independence 🚀<br/> 🌍 every purchase directly supports an
+        independent artist and developers like me 🌍<br/> 🌟 Your support keeps the dream
+        alive and the stickers flowing 🌟 
+      </p>
+    )
+  }
+]
 const AboutSection = () => {
-	const [tab, setTab] = useState("skills");
-	const [isPending, startTransition] = useTransition();
+	const [tab, setTab] = useState('skills')
+	const [isPending, startTransition] = useTransition()
 	//startTransition
-	const handleTabChange = (id) => {
-		startTransition(() => {
-			setTab(id);
-		});
-	};
+	const handleTabChange = id => {
+	  startTransition(() => {
+		setTab(id)
+	  })
+	}
 	return (
-		<section className="relative" id="aboutSection">
-			<div
-				id="about"
-				className="pt-12 md:pt-16 bg-[white] md:flex md:flex-row sm:flex-col items-top items-center justify-center"
-			>
-				<div className="md:grid md:grid-cols-1">
-					{/* Welcome Header */}
-					<div className="py-2 px-8  text-black font-normal">
-						<h1 className="text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black">
-							Welcome to Khoi
-						</h1>
-						<p className=" lg:text-4xl md:text-xl text-md font-normal text-[#1a1b1f] text-opacity-60  border-b-2 border-black text-center">
-							It&apos;s a one person show
-						</p>
-					</div>
+	  <section className='relative' id='aboutSection'>
+		<div
+		  id='about'
+		  className='pt-12 md:pt-16 bg-[white] md:flex md:flex-row sm:flex-col items-top items-center justify-center'
+		>
+		  <div className='md:grid md:grid-cols-1'>
+			{/* Welcome Header */}
+			<div className='py-2 px-8  text-black font-normal'>
+			  <h1 className='text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-red-500'>
+				Welcome to Khoi
+			  </h1>
+			  <p className=' lg:text-4xl md:text-xl text-md font-normal text-[#726127] text-opacity-60  border-b-2 border-black text-center'>
+				It&apos;s a one person show
+			  </p>
+			</div>
 
 					{/* TAB BUTTON */}
 					
@@ -93,8 +94,8 @@ const AboutSection = () => {
 							TAB DATA*/}
 						<div
 							id="about-table-data"
-							className=" lg:max-w-2xl md:max-w-md  text-black md:text-lg sm:text-sm  border-gray-300 border-4 bg-gray-200 
-									rounded-xl p-4 m-4 drop-shadow-lg text-center"
+							className=' text-blue-700 lg:max-w-2xl md:max-w-md  md:text-lg sm:text-sm  border-gray-300 border-4 bg-gray-200 
+									rounded-xl p-4 m-4 drop-shadow-lg text-center'
 						>
 							{TAB_DATA.find((t) => t.id === tab).content}
 						</div>
