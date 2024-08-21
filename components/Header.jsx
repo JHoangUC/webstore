@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Search from './Search'
 import { useCart } from '../context/CartContext'
 import NavLink from './NavLink'
+import Image from 'next/image'
 
 import {
   ShoppingBagIcon,
@@ -29,17 +30,18 @@ const Header = ({ setCartSliderIsOpen }) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className='fixed top-0 left-0 right-0 z-10  px- py-3 bg-gray-200'>
-      <div className='flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2'>
+    <header className='fixed top-0 left-0 right-0 z-10   bg-gray-200'>
+      <div className='flex container lg:py-4 flex-wrap items-center justify-between mx-auto  '>
         <Link href='/'>
-          <a>
-            <div className='text-lg font-medium uppercase  text-sky-700'>
+          <a className='flex items-center '>
+            <Image src={'/../public/images/logo.png'} height={65} width={65} />
+            <div className=' text-2xl font-medium uppercase  text-sky-700'>
               Designs By Khoi
             </div>
           </a>
         </Link>
         <div className='menu hidden md:block md:w-auto' id='navbar'>
-            <ul className='flex text-sky-700 md:flex-row md:space-x-14 mt-0 '>
+            <ul className='flex text-sky-700 text-lg md:flex-row md:space-x-14 mt-0 '>
               {navLinks.map((link, index) => (
                 <li key={index}>
                   <NavLink href={link.path} title={link.title} />
@@ -60,10 +62,11 @@ const Header = ({ setCartSliderIsOpen }) => {
               onClick={() => setCartSliderIsOpen(open => !open)}
             >
               <ShoppingBagIcon
-                className='flex-shrink-0 h-5 w-5 text-sky-700 group-hover:text-sky-800'
+                className='flex-shrink-0 h-7 w-7 text-sky-700 group-hover:text-sky-800 '
                 aria-hidden='true'
+               
               />
-              <span className='ml-2 text-sm font-medium text-sky-700 group-hover:text-sky-800'>
+              <span className='ml-2 text-lg font-medium text-sky-700 group-hover:text-sky-800'>
                 ( {getTotalQuantity()} )
               </span>
               <span className='sr-only'>items in cart, view bag</span>
