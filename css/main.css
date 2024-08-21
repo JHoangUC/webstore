@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Rubik+Scribble&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
 #aboutSection, #fullPage, .header{
     font-family: 'Rubik Doodle Shadow';
+  }
+  .jost-<uniquifier> {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
   }
 /* #about-table-data {
     font-family:  'Rubik Scribble';

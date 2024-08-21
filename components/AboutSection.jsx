@@ -49,14 +49,18 @@ const AboutSection = () => {
 	  })
 	}
 	return (
+		
 	  <section className='relative' id='aboutSection'>
+
 		<div
 		  id='about'
 		  className='pt-12 md:pt-16 bg-[#f5f5f5] md:flex md:flex-row sm:flex-col items-top items-center justify-center'
 		>
+
 		  <div className='md:grid md:grid-cols-1'>
 			{/* Welcome Header */}
 			<div className='py-2 px-8  text-black font-normal'>
+
 				{/* //text-red-500 */}
 			  <h1 className='text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black'>
 				Welcome to Khoi
@@ -116,6 +120,7 @@ const AboutSection = () => {
 							alt="me"
 							// style={{position: "relative", left:"50%"}}
 						/>
+
 					</div>
 				
 			</div>
