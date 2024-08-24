@@ -1,5 +1,4 @@
-"use client";
-import React, { useTransition, useState } from "react";
+import React, { useTransition, useState, useEffect } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 import Khoi from "./../public/images/khoi.jpg"
@@ -11,7 +10,8 @@ const TAB_DATA = [
     content: (
       <p>
         I&apos;m John 😊 the one-person show behind Designs By Khoi 🎈  <br /> but
-        I&apos;m just a university student with a desire to succeed in life 🚀
+        I&apos;m just a university student with a desire to succeed in life 🚀<br /><br />
+        Check out my socials @DesignsByKhoi
       </p>
     )
   },
@@ -39,93 +39,85 @@ const TAB_DATA = [
     )
   }
 ]
+
 const AboutSection = () => {
-	const [tab, setTab] = useState('skills')
-	const [isPending, startTransition] = useTransition()
-	//startTransition
-	const handleTabChange = id => {
-	  startTransition(() => {
-		setTab(id)
-	  })
-	}
-	return (
-		
-	  <section className='relative' id='aboutSection'>
+  const [tab, setTab] = useState('skills');
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [displayTab, setDisplayTab] = useState('skills');
 
-		<div
-		  id='about'
-		  className='pt-12 md:pt-16 bg-[#f5f5f5] md:flex md:flex-row sm:flex-col items-top items-center justify-center'
-		>
+  const handleTabChange = id => {
+    if (id !== tab) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setTab(id);
+        setDisplayTab(id);
+        setIsTransitioning(false);
+      }, 300); // Timeout duration should match the transition duration in CSS
+    }
+  };
 
-		  <div className='md:grid md:grid-cols-1'>
-			{/* Welcome Header */}
-			<div className='py-2 px-8  text-black font-normal'>
+  return (
+    <section className="relative " id="aboutSection">
+      <div
+        id="about"
+        className=" md:pt-16 sm:pt-0  bg-[#f5f5f5] md:flex md:flex-row sm:flex-col  items-center justify-center"
+      >
+        <div className="md:grid md:grid-cols-1">
+          <div className="py-10">
+            <div className="py-2 px-8 text-black font-normal">
+              <h1 className="text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black">
+                Welcome to Khoi
+              </h1>
+              <p className="lg:text-4xl md:text-xl text-md font-normal text-black text-opacity-60 border-b-2 border-black text-center">
+                It&apos;s a one person show
+              </p>
+            </div>
+            <div  className="p-2 flex flex-row sm:text-sm md:text-base lg:text-2xl text-black items-center justify-center">
+              <TabButton
+                selectTab={() => handleTabChange("skills")}
+                active={tab === "skills"}
+              >
+                About Me{" "}
+              </TabButton>
+              <TabButton
+                selectTab={() => handleTabChange("education")}
+                active={tab === "education"}
+              >
+                Why Stickers?{" "}
+              </TabButton>
+              <TabButton
+                selectTab={() => handleTabChange("experience")}
+                active={tab === "experience"}
+              >
+                Support{" "}
+              </TabButton>
+            </div>
+          </div>
 
-				{/* //text-red-500 */}
-			  <h1 className='text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black'>
-				Welcome to Khoi
-			  </h1>
-			  {/* //text-[#726127] */}
-			  <p className=' lg:text-4xl md:text-xl text-md font-normal text-black text-opacity-60  border-b-2 border-black text-center'>
-				It&apos;s a one person show
-			  </p>
-			</div>
-
-					{/* TAB BUTTON */}
-					
-						<div
-							className="p-2 flex flex-row sm:text-sm md:text-base lg:text-2xl
-					text-black  items-center justify-center  "
+          <div
+            id="about-table-data"
+            className={` text-black lg:max-w-2xl md:max-w-md md:text-lg sm:text-sm lg:text-2xl border-gray-300 border-4 bg-gray-200 
+                        rounded-xl p-4 m-4 drop-shadow-lg text-center
+                        ${isTransitioning ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'} 
+                        transition-opacity transition-transform duration-300 ease-in-out`}
+						style={{ height: '170px', overflowY: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Jersey 10' }}
 						>
-							<TabButton
-								selectTab={() => handleTabChange("skills")}
-								active={tab === "skills"}
-							>
-								About Me{" "}
-							</TabButton>
-							<TabButton
-								selectTab={() => handleTabChange("education")}
-								active={tab === "education"}
-							>
-								Why Stickers?{" "}
-							</TabButton>
-							<TabButton
-								selectTab={() => handleTabChange("experience")}
-								active={tab === "experience"}
-							>
-								Support{" "}
-							</TabButton>
-						</div>
-						{/*Editing Tab Content Data
-							TAB DATA*/}
-						<div
-							id="about-table-data"
-							className=' text-black lg:max-w-2xl md:max-w-md  md:text-lg sm:text-sm  border-gray-300 border-4 bg-gray-200 
-									rounded-xl p-4 m-4 drop-shadow-lg text-center'
-						>
-							{TAB_DATA.find((t) => t.id === tab).content}
-						</div>
-				</div>
-					<div 
-						className=" lg:px-80  drop-shadow-lg 
-							sm:w-[400px] sm:h-[350px] md:w-[400px] md:h-[450px] lg:w-[500px] lg:h-[700px]   
-							"
-					>
-						<Image
-							className="object-scale-down"
-							src={Khoi}
-							layout="fill"
-
-								
-							alt="me"
-							// style={{position: "relative", left:"50%"}}
-						/>
-
-					</div>
-				
-			</div>
-		</section>
-	);
+            {TAB_DATA.find((t) => t.id === displayTab).content}
+          </div>
+        </div>
+        <div
+          className="lg:px-80 drop-shadow-lg sm:w-[400px] sm:h-[350px] md:w-[400px] md:h-[450px] lg:w-[500px] lg:h-[700px]"
+        >
+          <Image
+            className="object-scale-down"
+            src={Khoi}
+            layout="fill"
+            alt="me"
+          />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default AboutSection;

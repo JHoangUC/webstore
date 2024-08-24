@@ -62,7 +62,7 @@ const EmailSection = () => {
         <h5 className='md:text-xl sm:text-lg font-bold text-black my-2'>
           Let&apos;s Connect
         </h5>
-        <p className='text-black text-sm mb-4 md:max-w-md hover:cursor-default'>
+        <p id='contactMessage' className='text-black text-lg mb-4 md:max-w-md hover:cursor-default'>
         Hey there! 👋
           <br /> Have any questions or special requests? 🎤 <br /> Feel free to
           shoot me a message here! 🌟 <br /> I&apos;m always open to suggestions
