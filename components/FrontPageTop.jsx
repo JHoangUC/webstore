@@ -7,13 +7,13 @@ const FrontPageTop = () => {
   return (
     <section className="pt-24 flex flex-col bg-[#f5f5f5] items-center justify-center ">
       <div className=''>
-    <div id='project' className="   z-0  sm:w-[400px] sm:h-[350px] md:w-[400px] md:h-[450px] lg:w-[1500px] lg:h-auto"
+    <div id='project' className=" z-0   md:w-[900px]  lg:w-[1500px] "
     >
     <Image
         className=" drop-shadow-md object-scale-down relative "
         src={head}
         fill
-        sizes="(max-width: 768px) 20vw, 200px "
+        
         
 
         
