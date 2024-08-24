@@ -17,6 +17,8 @@ const Card = ({ price }) => {
     } else {
       // If the item is not found, add a new item to the cart
       addItem({ ...price, quantity: 1 });
+      setError('Item added to cart!');
+
     }
   };
 
@@ -53,24 +55,26 @@ const Card = ({ price }) => {
 
         </div>
       </div>
-      <p className='relative text-lg font-semibold text-black font-sans'>
+      <p className='relative text-lg font-semibold text-black font-mono'>
             {(unit_amount / 100).toLocaleString('en-CA',  {
               style: 'currency',
               currency: 'USD'
             })}
           </p>
-      <div className='mt-6'>
+      <div  className='mt-6 '>
         
         <button
           onClick={e => {
             e.stopPropagation() // Prevent parent Link from triggering
             addItemToCart(price)
           }}
-          className='relative flex z-10 bg-[#dfdbdb] border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-semibold text-gray-900 hover:bg-gray-200'
+          className='relative flex z-10 bg-[#dfdbdb] border border-transparent rounded-md py-2 px-8  text-sm font-semibold text-gray-900 hover:bg-gray-200'
         >
           Add to Cart<span className='sr-only'>, {product.name}</span>
         </button>
-        {error && <p className='text-sm text-red-400'>{error}</p>}
+        <div style={{ minHeight: '30px' }}>
+        {error && <p  id='updateToCart' className='flex text-lg text-red-400'>{error}</p>}
+        </div>
       </div>
     </div>
   )

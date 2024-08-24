@@ -16,7 +16,7 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as='div' className='relative z-10' onClose={setCartSliderIsOpen}>
+      <Dialog as='div' className='relative z-30' onClose={setCartSliderIsOpen}>
         <Transition.Child
           as={Fragment}
           enter='ease-in-out duration-500'
@@ -79,14 +79,14 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
 
                                 <div className='ml-4 flex flex-1 flex-col'>
                                   <div>
-                                    <div className='flex justify-between text-base font-medium text-gray-900'>
+                                    <div className='flex justify-between text-base font-medium text-gray-900 font-mono'>
                                       <h3>
                                         <a href={price.product.href}>
                                           {' '}
                                           {price.product.name}{' '}
                                         </a>
                                       </h3>
-                                      <p className='ml-4'>
+                                      <p className='ml-4 font-mono'>
                                         {(
                                           price.unit_amount / 100
                                         ).toLocaleString('en-CA', {
@@ -95,14 +95,14 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
                                         })}
                                       </p>
                                     </div>
-                                    <p className='mt-1 text-sm text-gray-500'>
+                                    <p  className='mt-1 text-sm text-gray-500 font-mono'>
                                       {price.product.description}
                                     </p>
                                   </div>
                                   <div className='flex flex-1 items-end justify-between text-sm'>
-                                  <p className="text-gray-500">Quantity: {getProductQuantity(price.id)}</p>
+                                  <p className="text-gray-500 font-mono">Quantity: {getProductQuantity(price.id)}</p>
 
-                                    <div className='flex'>
+                                    <div className='flex font-mono'>
                                       <button
                                         type='button'
                                         onClick={() => removeItem(price.id)}
@@ -120,7 +120,7 @@ export default function ShoppingCartSlideOver({ open, setCartSliderIsOpen }) {
                       </div>
                     </div>
 
-                    <div className='border-t border-gray-200 py-6 px-4 sm:px-6'>
+                    <div className='border-t border-gray-200 py-6 px-4 sm:px-6 font-sans'>
                       <div className='flex justify-between text-base font-medium text-gray-900'>
                         <p>Subtotal</p>
                         <p>
