@@ -35,8 +35,9 @@ const Card = ({ price }) => {
           <h3 className='text-xl font-semibold text-black'>{product.name}</h3>
           <p className='mt-1 mb-3 text-sm font-bold text-gray-700'>{product.description}</p>
         </div>
-        <div className='relative w-full h-72 rounded-lg overflow-hidden '
+        <div className='relative w-full h-72 rounded-lg overflow-hidden z-10 '
         >
+          <Link href={`/productPage/${product.id}`}>
           <Image
             
             src={product.images[0]}
@@ -44,6 +45,7 @@ const Card = ({ price }) => {
             className='object-scale-down '
             layout='fill'
           />
+          </Link>
         </div>
 
         <div className='absolute top-0 inset-x-0 h-72 rounded-lg p-4 flex items-end justify-end overflow-hidden'>

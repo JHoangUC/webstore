@@ -62,8 +62,11 @@ const AboutSection = () => {
         id="about"
         className=" md:pt-16 sm:pt-0  bg-[#f5f5f5] md:flex md:flex-row sm:flex-col  items-center justify-center"
       >
-        <div className="md:grid md:grid-cols-1">
+
+        <div className="md:grid z-10 md:grid-cols-1">
+          
           <div className="py-10">
+
             <div className="py-2 px-8 text-black font-normal">
               <h1 className="text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black">
                 Welcome to Khoi
@@ -72,6 +75,10 @@ const AboutSection = () => {
                 It&apos;s a one person show
               </p>
             </div>
+
+            
+
+
             <div  className="p-2 flex flex-row sm:text-sm md:text-base lg:text-2xl text-black items-center justify-center">
               <TabButton
                 selectTab={() => handleTabChange("skills")}
