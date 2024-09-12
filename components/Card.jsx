@@ -35,9 +35,9 @@ const Card = ({ price }) => {
           <h3 className='text-xl font-semibold text-black'>{product.name}</h3>
           <p className='mt-1 mb-3 text-sm font-bold text-gray-700'>{product.description}</p>
         </div>
-        <div className='relative w-full h-72 rounded-lg overflow-hidden z-10 '
+        <div className='relative w-full h-72 rounded-lg overflow-hidden z-10 hover:scale-125 hover:cursor-pointer'
         >
-          <Link href={`/productPage/${product.id}`}>
+          <Link  href= {`/productPage/${product.id}`}>
           <Image
             
             src={product.images[0]}
@@ -70,7 +70,7 @@ const Card = ({ price }) => {
             e.stopPropagation() // Prevent parent Link from triggering
             addItemToCart(price)
           }}
-          className='relative flex z-10 bg-[#dfdbdb] border border-transparent rounded-md py-2 px-8  text-sm font-semibold text-gray-900 hover:bg-gray-200'
+          className='relative flex z-10 hover:scale-110 bg-[#dfdbdb] border border-transparent rounded-md py-2 px-8  text-sm font-semibold text-gray-900 hover:bg-gray-200'
         >
           Add to Cart<span className='sr-only'>, {product.name}</span>
         </button>

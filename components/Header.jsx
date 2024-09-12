@@ -38,9 +38,9 @@ const Header = ({ setCartSliderIsOpen }) => {
     <header className='fixed top-0 left-0 right-0 z-20   bg-gray-200 drop-shadow-lg'>
       <div className='flex container lg:py-2 flex-wrap items-center justify-between mx-auto  '>
         <Link href='/'>
-          <a className='flex items-center  '>
+          <a className='flex items-center hover:scale-110 '>
             <Image src={logo} fill height={65} width={65} />
-            <div className=' md:text-2xl hidden md:block  font-medium uppercase  text-sky-700 hover:text-purple-400'>
+            <div className=' md:text-2xl hidden md:block  font-medium uppercase  text-sky-700 hover:text-purple-400 '>
               Designs By Khoi
             </div>
           </a>
@@ -65,7 +65,7 @@ const Header = ({ setCartSliderIsOpen }) => {
         <div className='menu hidden md:block md:w-auto' id='navbar'>
             <ul className='flex   md:flex-row md:space-x-14 mt-0 sm:text-sm'>
               {navLinks.map((link, index) => (
-                <li className='text-sky-700  hover:text-purple-400 text-lg' key={index}>
+                <li className='text-sky-700  hover:text-purple-400 hover:scale-125 text-lg' key={index}>
                   <NavLink href={link.path} title={link.title} />
                 </li>
               ))}
@@ -80,7 +80,7 @@ const Header = ({ setCartSliderIsOpen }) => {
           /> */}
           <div className=' flow-root lg:ml-8'>
             <div
-              className='group p-2 flex items-center cursor-pointer'
+              className='group hover:scale-110 p-2 flex items-center cursor-pointer'
               onClick={() => setCartSliderIsOpen(open => !open)}
             >
               <ShoppingBagIcon

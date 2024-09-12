@@ -57,6 +57,7 @@ const AboutSection = () => {
   };
 
   return (
+
     <section className="relative " id="aboutSection">
       <div
         id="about"
@@ -79,7 +80,7 @@ const AboutSection = () => {
             
 
 
-            <div  className="p-2 flex flex-row sm:text-sm md:text-base lg:text-2xl text-black items-center justify-center">
+            <div  className="p-2 flex flex-row  sm:text-sm md:text-base lg:text-2xl text-black items-center justify-center">
               <TabButton
                 selectTab={() => handleTabChange("skills")}
                 active={tab === "skills"}
@@ -103,7 +104,7 @@ const AboutSection = () => {
 
           <div
             id="about-table-data"
-            className={` text-black lg:max-w-2xl md:max-w-md md:text-lg sm:text-sm lg:text-2xl border-gray-300 border-4 bg-gray-200 
+            className={`text-black lg:max-w-2xl md:max-w-md md:text-lg sm:text-sm lg:text-2xl border-gray-300 border-4 bg-gray-200 
                         rounded-xl p-4 m-4 drop-shadow-lg text-center
                         ${isTransitioning ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'} 
                         transition-opacity transition-transform duration-300 ease-in-out`}
@@ -116,7 +117,7 @@ const AboutSection = () => {
           className="lg:px-80 drop-shadow-lg sm:w-[400px] sm:h-[350px] md:w-[400px] md:h-[450px] lg:w-[500px] lg:h-[700px]"
         >
           <Image
-            className="object-scale-down"
+            className="object-scale-down "
             src={Khoi}
             layout="fill"
             alt="me"
