@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Slider from "react-slick";
+import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -12,6 +12,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     if (id) {
+      // Fetch the product data first
       fetch(`/api/stripe/products/${id}`)
         .then((response) => {
           if (!response.ok) {
@@ -19,8 +20,24 @@ const ProductPage = () => {
           }
           return response.json();
         })
-        .then((data) => {
-          setProduct(data);  // Store product data in state
+        .then((productData) => {
+          setProduct(productData);  // Set product data initially
+
+          // Fetch the price data using the default_price from the product data
+          return fetch(`/api/stripe/prices/${productData.default_price}`);
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch price');
+          }
+          return response.json();
+        })
+        .then((priceData) => {
+          // Merge the unit_amount from the price into the product object
+          setProduct((prevProduct) => ({
+            ...prevProduct,
+            unit_amount: priceData.unit_amount,
+          }));
         })
         .catch((error) => {
           setError(error.message);
@@ -31,39 +48,50 @@ const ProductPage = () => {
   if (error) return <p>Error: {error}</p>;
   if (!product) return <p>Loading...</p>;
 
-  // Slick Slider Settings
   const settings = {
-    dots: true,   // Show pagination dots
-    infinite: true,   // Enable infinite scrolling
-    speed: 500,   // Transition speed in milliseconds
-    slidesToShow: 1,   // Number of slides to show
-    slidesToScroll: 1,   // Number of slides to scroll at once
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   return (
-    <div className="container mx-auto p-6 relative">
-      <h1 className="text-2xl font-bold">{product.name}</h1>
-      <p className="mt-2 text-gray-600">{product.description}</p>
+    <div className="container mx-auto mt-20 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Image Carousel */}
+        <div>
+          <Slider {...settings}>
+            {product.images.map((image, index) => (
+              <div key={index}>
+                <img
+                  src={image}
+                  alt={`${product.name} image ${index + 1}`}
+                  className="object-scale-down w-full h-full max-h-[500px] rounded-lg"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
 
-      {/* Image Carousel using React Slick */}
-      <Slider {...settings}>
-        {product.images.map((image, index) => (
-          <div key={index}>
-            <img
-              src={image}
-              alt={`${product.name} image ${index + 1}`}
-              className="w-full h-auto object-contain max-h-[500px] mx-auto"
-            />
-          </div>
-        ))}
-      </Slider>
+        {/* Product Information */}
+        <div>
+          <h1 className="text-4xl font-bold text-gray-800">{product.name}</h1>
+          <p className="mt-4 text-gray-600">{product.description}</p>
+          <p className="mt-8 text-2xl font-semibold text-green-600">
+            Price: {(product.unit_amount / 100).toLocaleString('en-CA', {
+              style: 'currency',
+              currency: 'USD',
+            })}
+          </p>
+        </div>
+      </div>
 
-      <p className="mt-6 text-xl font-semibold">
-        Price: {(product.unit_amount / 100).toLocaleString('en-CA', {
-          style: 'currency',
-          currency: 'USD'
-        })}
-      </p>
+      {/* Footer */}
+      <footer className="mt-16 text-center text-gray-500">
+        <p className="border-t pt-4">Designs by Khoi</p>
+        <p className="mt-2">&copy; 2024 All rights reserved.</p>
+      </footer>
     </div>
   );
 };

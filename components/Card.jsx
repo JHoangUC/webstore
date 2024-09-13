@@ -8,6 +8,7 @@ const Card = ({ price }) => {
   const [error, setError] = useState('')
   const { product, unit_amount } = price
 
+
   const addItemToCart = (price) => {
     const found = items.find((p) => p.id === price.id);
     if (found) {
@@ -57,12 +58,14 @@ const Card = ({ price }) => {
 
         </div>
       </div>
+      
       <p className='relative text-lg font-semibold text-black font-mono'>
             {(unit_amount / 100).toLocaleString('en-CA',  {
               style: 'currency',
               currency: 'USD'
             })}
           </p>
+
       <div  className='mt-6 '>
         
         <button

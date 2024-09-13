@@ -1,61 +1,70 @@
-import { useState, useEffect } from 'react';  // Import React hooks for state management and lifecycle methods
-import { useRouter } from 'next/router';  // Import Next.js router for handling dynamic routes
-import Card from '../../components/Card';  // Import the Card component to display each product
-import Stripe from 'stripe';  // Import Stripe to interact with Stripe API
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Card from '../../components/Card';
+import Stripe from 'stripe';
 
 export default function Id({ prices: { data = [] } }) {
-  const router = useRouter();  // Get the Next.js router instance
-  const { id, price: key } = router.query;  // Destructure the id and price from the query parameters in the URL
-  const [products, setProducts] = useState(data);  // Initialize state for products fetched from the server-side props
-  const [filteredProducts, setFilteredProducts] = useState([]);  // Initialize state for products filtered by the dynamic ID
+  const router = useRouter();
+  const { id, price: key } = router.query;
+  const [products, setProducts] = useState(data);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  // useEffect hook to run whenever `id` or `products` change
   useEffect(() => {
-    // Only run the filter if the id is available (to prevent errors when id is undefined)
     if (id) {
-      console.log('Filtering products with id:', id);  // Log the ID being used for filtering (for debugging)
-      
-      // Filter the products to match the product ID from the URL
-      const filtered = products.filter(product => product.id === id);
-      setFilteredProducts(filtered);  // Update the state with the filtered products
-    }
-  }, [id, products]);  // Dependencies: effect will run again if `id` or `products` change
+      console.log('Filtering products with id:', id);
 
-  // Return a loading message while the id is not yet available from the router (avoids trying to render without it)
-  if (!id) return <p>Loading...</p>;
+      // Filter products based on the dynamic id
+      const filtered = products.filter(product => product.id === id);
+      setFilteredProducts(filtered);
+    }
+  }, [id, products]);
+
+  if (!id) return (
+    <div className="flex items-center justify-center h-screen">
+      <p className="text-2xl text-gray-700">Loading...</p>
+    </div>
+  );
+
+  if (filteredProducts.length === 0) return (
+    <div className="flex items-center justify-center h-screen">
+      <p className="text-2xl text-gray-700">No products found for the given ID.</p>
+    </div>
+  );
 
   return (
-    <>
-      {/* Map through the filtered products and render a Card component for each */}
-      <div className='mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8'>
-        {filteredProducts.map(price => (
-          <Card key={price.id} price={price} />  {/* Key is important for list rendering performance */}
+    <div className="container mx-auto mt-8 p-4">
+      {/* Product Grid */}
+      <div className='grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>
+        {filteredProducts.map((price) => (
+          <Card key={price.id} price={price} />
         ))}
       </div>
-      
-      {/* Display the id and price (key) as debugging information */}
-      <h1>id: {id}</h1>
-      <h1>key: {key}</h1>
-    </>
+
+      {/* Debugging Information (optional) */}
+      <div className="mt-12">
+        <h2 className="text-lg font-bold">Debug Info:</h2>
+        <p>id: {id}</p>
+        <p>key: {key}</p>
+      </div>
+    </div>
   );
 }
 
-// getServerSideProps is used to fetch product data from Stripe before rendering the page
+
 export async function getServerSideProps() {
-  // Initialize the Stripe client using the secret key stored in environment variables
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-  // Fetch a list of prices from Stripe, limiting to 10 and expanding the related product information
+  // Fetch the list of prices, expanding the associated product information
   const prices = await stripe.prices.list({
-    active: true,  // Only fetch active prices
-    limit: 10,  // Limit the number of prices returned to 10
-    expand: ['data.product'],  // Expand the product object in the returned data
+    active: true,
+    limit: 10,
+    expand: ['data.product'],  // Expand the associated product details
   });
 
-  // Return the prices as props to be passed into the page component
   return {
     props: {
-      prices,  // Pass the prices data to the component as a prop
+      prices, // Pass the prices and associated product data to the frontend
     },
   };
 }
+
