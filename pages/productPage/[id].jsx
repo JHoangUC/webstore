@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Slider from 'react-slick';
+import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -12,7 +12,6 @@ const ProductPage = () => {
 
   useEffect(() => {
     if (id) {
-      // Fetch the product data first
       fetch(`/api/stripe/products/${id}`)
         .then((response) => {
           if (!response.ok) {
@@ -20,24 +19,10 @@ const ProductPage = () => {
           }
           return response.json();
         })
-        .then((productData) => {
-          setProduct(productData);  // Set product data initially
+        .then((data) => {
+          console.log('Fetched product data:', data); // Debug product data
 
-          // Fetch the price data using the default_price from the product data
-          return fetch(`/api/stripe/prices/${productData.default_price}`);
-        })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Failed to fetch price');
-          }
-          return response.json();
-        })
-        .then((priceData) => {
-          // Merge the unit_amount from the price into the product object
-          setProduct((prevProduct) => ({
-            ...prevProduct,
-            unit_amount: priceData.unit_amount,
-          }));
+          setProduct(data);  
         })
         .catch((error) => {
           setError(error.message);
@@ -56,6 +41,14 @@ const ProductPage = () => {
     slidesToScroll: 1,
   };
 
+  // Handle displaying the price, ensure default_price is available
+  const price = product.default_price
+    ? (product.default_price.unit_amount / 100).toLocaleString('en-CA', {
+        style: 'currency',
+        currency: 'USD',
+      })
+    : 'Price unavailable'
+
   return (
     <div className="container mx-auto mt-20 p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -67,7 +60,7 @@ const ProductPage = () => {
                 <img
                   src={image}
                   alt={`${product.name} image ${index + 1}`}
-                  className="object-scale-down w-full h-full max-h-[500px] rounded-lg"
+                  className="object-cover w-full h-full max-h-[500px] rounded-lg"
                 />
               </div>
             ))}
@@ -79,10 +72,7 @@ const ProductPage = () => {
           <h1 className="text-4xl font-bold text-gray-800">{product.name}</h1>
           <p className="mt-4 text-gray-600">{product.description}</p>
           <p className="mt-8 text-2xl font-semibold text-green-600">
-            Price: {(product.unit_amount / 100).toLocaleString('en-CA', {
-              style: 'currency',
-              currency: 'USD',
-            })}
+            Price: {price}
           </p>
         </div>
       </div>
