@@ -57,13 +57,17 @@ const AboutSection = () => {
   };
 
   return (
+
     <section className="relative " id="aboutSection">
       <div
         id="about"
         className=" md:pt-16 sm:pt-0  bg-[#f5f5f5] md:flex md:flex-row sm:flex-col  items-center justify-center"
       >
-        <div className="md:grid md:grid-cols-1">
+
+        <div className="md:grid z-10 md:grid-cols-1">
+          
           <div className="py-10">
+
             <div className="py-2 px-8 text-black font-normal">
               <h1 className="text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black">
                 Welcome to Khoi
@@ -72,7 +76,11 @@ const AboutSection = () => {
                 It&apos;s a one person show
               </p>
             </div>
-            <div  className="p-2 flex flex-row sm:text-sm md:text-base lg:text-2xl text-black items-center justify-center">
+
+            
+
+
+            <div  className="p-2 flex flex-row  sm:text-sm md:text-base lg:text-2xl text-black items-center justify-center">
               <TabButton
                 selectTab={() => handleTabChange("skills")}
                 active={tab === "skills"}
@@ -96,7 +104,7 @@ const AboutSection = () => {
 
           <div
             id="about-table-data"
-            className={` text-black lg:max-w-2xl md:max-w-md md:text-lg sm:text-sm lg:text-2xl border-gray-300 border-4 bg-gray-200 
+            className={`text-black lg:max-w-2xl md:max-w-md md:text-lg sm:text-sm lg:text-2xl border-gray-300 border-4 bg-gray-200 
                         rounded-xl p-4 m-4 drop-shadow-lg text-center
                         ${isTransitioning ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'} 
                         transition-opacity transition-transform duration-300 ease-in-out`}
@@ -109,7 +117,7 @@ const AboutSection = () => {
           className="lg:px-80 drop-shadow-lg sm:w-[400px] sm:h-[350px] md:w-[400px] md:h-[450px] lg:w-[500px] lg:h-[700px]"
         >
           <Image
-            className="object-scale-down"
+            className="object-scale-down "
             src={Khoi}
             layout="fill"
             alt="me"
