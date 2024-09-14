@@ -40,7 +40,7 @@ const Header = ({ setCartSliderIsOpen }) => {
         <Link href='/'>
           <a className='flex items-center hover:scale-110 '>
             <Image src={logo} fill height={65} width={65} />
-            <div className=' md:text-2xl hidden md:block  font-medium uppercase  text-sky-700 hover:text-purple-400 '>
+            <div className=' md:text-3xl hidden md:block drop-shadow-xl font-medium uppercase  text-sky-700 hover:text-purple-400 '>
               Designs By Khoi
             </div>
           </a>
@@ -65,7 +65,7 @@ const Header = ({ setCartSliderIsOpen }) => {
         <div className='menu hidden md:block md:w-auto' id='navbar'>
             <ul className='flex   md:flex-row md:space-x-14 mt-0 sm:text-sm'>
               {navLinks.map((link, index) => (
-                <li className='text-sky-700  hover:text-purple-400 hover:scale-125 text-lg' key={index}>
+                <li className='text-sky-700  hover:text-purple-400 hover:scale-125 text-2xl' key={index}>
                   <NavLink href={link.path} title={link.title} />
                 </li>
               ))}
@@ -84,11 +84,11 @@ const Header = ({ setCartSliderIsOpen }) => {
               onClick={() => setCartSliderIsOpen(open => !open)}
             >
               <ShoppingBagIcon
-                className='flex-shrink-0 h-7 w-7 text-sky-700 group-hover:text-purple-400 '
+                className='flex-shrink-0 h-8 w-8 text-sky-700 group-hover:text-purple-400 '
                 aria-hidden='true'
                
               />
-              <span className='ml-2 text-lg font-medium text-sky-700 group-hover:text-purple-400'>
+              <span className='ml-2 text-2xl font-medium text-sky-700 group-hover:text-purple-400'>
                 ( {getTotalQuantity()} )
               </span>
               <span className='sr-only'>items in cart, view bag</span>

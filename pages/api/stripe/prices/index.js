@@ -63,7 +63,7 @@ const ProductPage = () => {
               <div key={index}>
                 <img
                   src={image}
-                  alt={${product.name} image ${index + 1}}
+                  alt={`${product.name} image ${index + 1}`}
                   className="object-scale-down w-full h-full max-h-[500px] rounded-lg"
                 />
               </div>

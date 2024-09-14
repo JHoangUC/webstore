@@ -12,7 +12,6 @@ export default async function handler(req, res) {
     const product = await stripe.products.retrieve(id, {
       expand: ['default_price'], // Expand to include the price
     });
-    
     // Check if the product exists, if not return 404
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
