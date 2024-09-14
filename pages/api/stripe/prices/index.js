@@ -13,7 +13,7 @@ const ProductPage = () => {
   useEffect(() => {
     if (id) {
       // Fetch all prices and associated product data
-      fetch(/api/stripe/prices)
+      fetch('/api/stripe/prices')
         .then((response) => {
           if (!response.ok) {
             throw new Error('Failed to fetch product and price data');
