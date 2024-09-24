@@ -8,6 +8,7 @@ const Card = ({ price }) => {
   const [error, setError] = useState('')
   const { product, unit_amount } = price
 
+
   const addItemToCart = (price) => {
     const found = items.find((p) => p.id === price.id);
     if (found) {
@@ -35,8 +36,9 @@ const Card = ({ price }) => {
           <h3 className='text-xl font-semibold text-black'>{product.name}</h3>
           <p className='mt-1 mb-3 text-sm font-bold text-gray-700'>{product.description}</p>
         </div>
-        <div className='relative w-full h-72 rounded-lg overflow-hidden '
+        <div className='relative w-full h-72 rounded-lg overflow-hidden z-10 hover:scale-125 hover:cursor-pointer'
         >
+          <Link  href= {`/productPage/${product.id}`}>
           <Image
             
             src={product.images[0]}
@@ -44,6 +46,7 @@ const Card = ({ price }) => {
             className='object-scale-down '
             layout='fill'
           />
+          </Link>
         </div>
 
         <div className='absolute top-0 inset-x-0 h-72 rounded-lg p-4 flex items-end justify-end overflow-hidden'>
@@ -55,12 +58,14 @@ const Card = ({ price }) => {
 
         </div>
       </div>
+      
       <p className='relative text-lg font-semibold text-black font-mono'>
             {(unit_amount / 100).toLocaleString('en-CA',  {
               style: 'currency',
               currency: 'USD'
             })}
           </p>
+
       <div  className='mt-6 '>
         
         <button
@@ -68,7 +73,7 @@ const Card = ({ price }) => {
             e.stopPropagation() // Prevent parent Link from triggering
             addItemToCart(price)
           }}
-          className='relative flex z-10 bg-[#dfdbdb] border border-transparent rounded-md py-2 px-8  text-sm font-semibold text-gray-900 hover:bg-gray-200'
+          className='relative flex z-10 hover:scale-110 bg-[#dfdbdb] border border-transparent rounded-md py-2 px-8  text-sm font-semibold text-gray-900 hover:bg-gray-200'
         >
           Add to Cart<span className='sr-only'>, {product.name}</span>
         </button>
