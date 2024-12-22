@@ -10,9 +10,9 @@ const FrontPageTop = () => {
     <div id='project' className=" z-0   md:w-[900px]  lg:w-[1500px] "
     >
     <Image
-        className=" drop-shadow-md object-scale-down relative "
+        className=" drop-shadow-md object-scale-down  "
         src={head}
-        fill
+        
         
         
 

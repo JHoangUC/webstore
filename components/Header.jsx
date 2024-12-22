@@ -37,13 +37,13 @@ const Header = ({ setCartSliderIsOpen }) => {
   return (
     <header className='fixed top-0 left-0 right-0 z-20   bg-gray-200 drop-shadow-lg'>
       <div className='flex container lg:py-2 flex-wrap items-center justify-between mx-auto  '>
-        <Link href='/'>
-          <a className='flex items-center hover:scale-110 '>
-            <Image src={logo} fill height={65} width={65} />
+        <Link href='/' className='flex items-center hover:scale-110 '>
+          
+            <Image src={logo}  height={65}/>
             <div className=' md:text-3xl hidden md:block drop-shadow-xl font-medium uppercase  text-sky-700 hover:text-purple-400 '>
               Designs By Khoi
             </div>
-          </a>
+          
         </Link>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (

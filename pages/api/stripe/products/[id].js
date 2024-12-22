@@ -1,4 +1,8 @@
 import Stripe from 'stripe';
+import NodeCache from 'node-cache';
+
+// Set up NodeCache (with a TTL of 10 minutes )
+const cache = new NodeCache({ stdTTL: 600, checkperiod: 320 }); // Cache TTL is 10 minutes
 
 // Initialize Stripe with your secret key
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -6,6 +10,13 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   // Get the product ID from the URL query parameters
   const { id } = req.query;
+
+  // Check if the product data is in the cache
+  const cachedProduct = cache.get(id);
+  if(cachedProduct){
+    // If cached data is found, return it
+    return res.status(200).json(cachedProduct)
+  }
 
   try {
     // Fetch the product details from Stripe using the product ID
@@ -23,11 +34,17 @@ export default async function handler(req, res) {
     if (product.metadata.image_2) additionalImages.push(product.metadata.image_2);
     if (product.metadata.image_3) additionalImages.push(product.metadata.image_3);
 
-    // Combine Stripe's main image with metadata images
-    const images = [product.images[0], ...additionalImages];
+    // Combine Stripe's main image with metadata images (only if main image exists)
+    const images = product.images.length > 0 ? [product.images[0], ...additionalImages] : [...additionalImages];
+
+    // Create the response object
+    const responseData = { ...product, images };
+
+    // Store the response in the cache
+    cache.set(id, responseData);
 
     // Return the product data, including the images array
-    res.status(200).json({ ...product, images });  // Include images in the response
+    res.status(200).json(responseData);
   } catch (error) {
     // If there's an error (e.g., invalid ID or Stripe API issue), log it and return an error response
     console.error('Error fetching product:', error);
