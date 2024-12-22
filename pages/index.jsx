@@ -8,26 +8,38 @@ import { useState } from 'react'
 require('dotenv').config();
 
 const HomePage = ({ prices: { data = [], has_more } }) => {
-  const [products, setProducts] = useState(data)//using data to append products
-  const [hasMore, setHasMore] = useState(has_more) //checking if Stripe has more products
+  const [products, setProducts] = useState(data)//using data to append products // Store products
+  const [hasMore, setHasMore] = useState(has_more) //checking if Stripe has more products 
 
-  const lastProductId = products[products.length - 1]?.id
+  const [lastProductId, setLastProductId] = useState(products[products.length - 1]?.id); // ID of the last product for pagination
 
+  // Function to load more products when the user clicks the "Load More" button
   const loadMore = async () => {
     if (!hasMore || !lastProductId) return
 
     try {
-      const { prices } = await fetch(
-        `/api/stripe/prices?starting_after=${lastProductId}`
-      ).then(res => res.json())
-      if (prices.data) {
-        setProducts(products => [...products, ...prices.data])
-        setHasMore(prices.has_more)
+            // Fetch more prices from the API route with pagination
+      const res = await fetch(`/api/stripe/prices?starting_after=${lastProductId}`);
+    
+      if (!res.ok) {
+        throw new Error('Failed to fetch more prices');
       }
+
+      const { prices } = await res.json();
+     
+      // Update state with new prices
+      setProducts((prevProducts) => [...prevProducts, ...prices.data]);
+
+      // If there are more products, set hasMore to true, otherwise false
+      setHasMore(prices.has_more);
+      
+      // Update the last product ID for the next pagination
+      setLastProductId(prices.data[prices.data.length - 1]?.id);
+      
     } catch (error) {
-      console.log(error)
+        console.error('Error loading more products:', error);
     }
-  }
+  };
 
   return (
     
@@ -65,12 +77,16 @@ export async function getServerSideProps() {
   const prices = await stripe.prices.list({
     active: true,
     limit: 10,
+    
     expand: ['data.product']
   })
 
   return {
     props: {
-      prices
+      prices: {
+        data: prices.data,
+        has_more: prices.has_more,
+      }
     }
   }
 }

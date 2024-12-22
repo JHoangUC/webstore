@@ -29,7 +29,7 @@ const Card = ({ price }) => {
   }, [error])
 
   return (
-    <div className='border-[#bebebe] border-2 p-10 drop-shadow-xl bg-white rounded-xl'>
+    <div className='border-[#bebebe] border-2 p-10  drop-shadow-xl bg-white rounded-xl'>
       
       <div className='relative'>
       <div className='relative mt-4'>

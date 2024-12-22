@@ -1,11 +1,21 @@
 Shopping Cart
 - Change Font (readability)
+Redesign the Front (ADD SOMETHING ABOUT STICKERS) Let them know what the website is about without scrolling
 
 Add Product Page
 -Product Photos
+-Product Redirect
+
+On Hover, Enlarge the cards and the
+navigation bar
+
+Change interface when half window
+////////////////////////////////////
+
 
 Add FAQ Page
 
-Review Section
+Product Review Section
 
-Redesign the Front (ADD SOMETHING ABOUT STICKERS) Let them know what the website is about without scrolling
+
+

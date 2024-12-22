@@ -69,10 +69,10 @@ const AboutSection = () => {
           <div className="py-10">
 
             <div className="py-2 px-8 text-black font-normal">
-              <h1 className="text-3xl lg:text-7xl md:text-4xl text-center sm:tracking-wide text-black">
+              <h1 className="text-4xl lg:text-7xl md:text-5xl text-center sm:tracking-wide text-black">
                 Welcome to Khoi
               </h1>
-              <p className="lg:text-4xl md:text-xl text-md font-normal text-black text-opacity-60 border-b-2 border-black text-center">
+              <p className="lg:text-4xl md:text-xl text-xl font-normal text-black text-opacity-60 border-b-2 border-black text-center">
                 It&apos;s a one person show
               </p>
             </div>
@@ -113,16 +113,17 @@ const AboutSection = () => {
             {TAB_DATA.find((t) => t.id === displayTab).content}
           </div>
         </div>
-        <div
-          className="lg:px-80 drop-shadow-lg sm:w-[400px] sm:h-[350px] md:w-[400px] md:h-[450px] lg:w-[500px] lg:h-[700px]"
-        >
-          <Image
-            className="object-scale-down "
-            src={Khoi}
-            layout="fill"
-            alt="me"
-          />
-        </div>
+
+       
+         <div
+        className="relative sm:w-[300px] sm:h-[300px]   md:w-[400px] md:h-[450px] lg:w-[500px] lg:h-[700px] lg:p-2 drop-shadow-lg p-4"
+      >
+        <Image
+          className="object-contain  rounded-xl "
+          src={Khoi}
+          alt="me"
+        />
+      </div>
       </div>
     </section>
   );

@@ -60,7 +60,7 @@ const ProductPage = () => {
           return response.json();
         })
         .then((data) => {
-          console.log('Fetched product data:', data); // Debug product data
+         // console.log('Fetched product data:', data); // Debug product data
 
           setProduct(data);  
         })
@@ -194,7 +194,7 @@ const ProductPage = () => {
               style={{ minWidth: "300px" }}
             >
               <Link href={`/productPage/${otherProduct.id}`}>
-                <a>
+                
                   <div className="relative w-full h-48 mb-4">
                     <Image
                       src={otherProduct.images[0]}
@@ -215,7 +215,7 @@ const ProductPage = () => {
                   ) : (
                     <p className="text-gray-500">Price unavailable</p>
                   )}
-                </a>
+                
               </Link>
             </div>
           ))}

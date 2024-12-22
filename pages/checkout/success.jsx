@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
-
+import Link from 'next/link';
 import { useCart } from '../../context/CartContext'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
@@ -76,7 +76,7 @@ function CheckoutSuccessPage() {
               <div className='flex-auto flex flex-col'>
                 <div>
                   <h4 className='font-medium text-gray-900'>
-                    <a href={product.url}>{product.name}</a>
+                    <Link href={product.url}>{product.name}</Link>
                   </h4>
                   <p className='mt-2 text-sm text-gray-600'>
                     {product.description}
