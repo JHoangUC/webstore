@@ -9,6 +9,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function CheckoutSuccessPage() {
   const { resetCart } = useCart()
+
   useEffect(() => {
     resetCart()
   }, [resetCart])
@@ -23,6 +24,7 @@ function CheckoutSuccessPage() {
   if (error) return <div>failed to load the session</div>
 
   const customer = checkoutSession?.customer_details
+  const shippingAddress = checkoutSession?.shipping?.address
   const products = checkoutSession?.line_items?.data?.map(item => ({
     ...item.price.product,
     price: item.price.unit_amount,
@@ -102,7 +104,24 @@ function CheckoutSuccessPage() {
               </div>
             </div>
           ))}
-
+          <div className="mt-10">
+            <h3 className="text-lg font-medium text-gray-900">Shipping Information</h3>
+            <div className="mt-4 text-sm text-gray-600">
+              {shippingAddress ? (
+                <>
+                  <p>{shippingAddress.line1}</p>
+                  {shippingAddress.line2 && <p>{shippingAddress.line2}</p>}
+                  <p>
+                    {shippingAddress.city}, {shippingAddress.state}{' '}
+                    {shippingAddress.postal_code}
+                  </p>
+                  <p>{shippingAddress.country}</p>
+                </>
+              ) : (
+                <p>No shipping address provided.</p>
+              )}
+            </div>
+          </div>
           <div className='sm:ml-40 sm:pl-6'>
             <h3 className='sr-only'>Your information</h3>
 
