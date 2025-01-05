@@ -15,6 +15,22 @@ const handler = async (req, res) => {
         mode: 'payment',
         success_url: `${req.headers.origin}/checkout/success?sessionId={CHECKOUT_SESSION_ID}`,
         cancel_url: req.headers.origin,
+        shipping_address_collection: {
+          allowed_countries: ['US', 'CA'], // Add the countries you want to allow
+        },
+        shipping_options: [
+          {
+            shipping_rate_data: {
+              type: 'fixed_amount',
+              fixed_amount: { amount: 0, currency: 'usd' }, // Example shipping rate
+              display_name: 'Standard Shipping',
+              delivery_estimate: {
+                minimum: { unit: 'business_day', value: 5 },
+                maximum: { unit: 'business_day', value: 7 },
+              },
+            },
+          },
+        ],
       })
 
       return res.status(201).json({ session })
