@@ -40,7 +40,7 @@ const Header = ({ setCartSliderIsOpen }) => {
         <Link href='/' className='flex items-center hover:scale-110 '>
           
             <Image src={logo}  height={65}/>
-            <div className=' md:text-3xl hidden md:block drop-shadow-xl font-medium uppercase  text-sky-700 hover:text-purple-400 '>
+            <div className=' lg:text-3xl sm:text-2xl hidden md:block drop-shadow-xl font-medium uppercase  text-sky-700 hover:text-purple-400 '>
               Designs By Khoi
             </div>
           

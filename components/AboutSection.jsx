@@ -61,7 +61,7 @@ const AboutSection = () => {
     <section className="relative " id="aboutSection">
       <div
         id="about"
-        className=" md:pt-16 sm:pt-0  bg-[#f5f5f5] md:flex md:flex-row sm:flex-col  items-center justify-center"
+        className=" md:py-16 py-12 sm:pt-0 md:pb-36 lg:pb-16 bg-[#f5f5f5] md:flex md:flex-row sm:flex-col  items-center justify-center"
       >
 
         <div className="md:grid z-10 md:grid-cols-1">
