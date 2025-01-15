@@ -62,7 +62,7 @@ const HomePage = ({ prices: { data = [], has_more } }) => {
         <button
           onClick={loadMore}
           disabled={!hasMore}
-          className='mt-10 w-full bg-sky-100 rounded-md py-2 px-8 text-sm font-medium text-sky-900 hover:bg-sky-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-100'
+          className='mt-10 w-full bg-sky-200 rounded-md py-2 px-8 text-sm font-medium text-sky-900 hover:bg-sky-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-100'
         >
           Load more
         </button>
