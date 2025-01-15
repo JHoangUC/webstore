@@ -36,15 +36,16 @@ const Card = ({ price }) => {
           <h3 className='text-xl font-semibold text-black'>{product.name}</h3>
           <p className='mt-1 mb-3 text-sm font-bold text-gray-700'>{product.description}</p>
         </div>
-        <div className='relative w-full h-72 rounded-lg overflow-hidden z-10 hover:scale-125 hover:cursor-pointer'
-        >
+        <div className='relative w-full h-72 rounded-lg overflow-hidden z-10 hover:scale-125 hover:cursor-pointer transition-transform duration-300'>
+        
           <Link  href= {`/productPage/${product.id}`}>
           <Image
             
             src={product.images[0]}
             alt={product.description}
-            className='object-scale-down '
-            layout='fill'
+            className="object-scale-down"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           </Link>
         </div>

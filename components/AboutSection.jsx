@@ -61,7 +61,7 @@ const AboutSection = () => {
     <section className="relative " id="aboutSection">
       <div
         id="about"
-        className=" md:py-16 py-12 sm:pt-0 md:pb-36 lg:pb-16 bg-[#f5f5f5] md:flex md:flex-row sm:flex-col  items-center justify-center"
+        className=" md:py-8 py-12 sm:pt-0 bg-[#f5f5f5] md:flex md:flex-row sm:flex-col  items-center justify-center"
       >
 
         <div className="md:grid z-10 md:grid-cols-1">
@@ -107,7 +107,7 @@ const AboutSection = () => {
             className={`text-black lg:max-w-2xl md:max-w-md md:text-lg sm:text-sm lg:text-2xl border-gray-300 border-4 bg-gray-200 
                         rounded-xl p-4 m-4 drop-shadow-lg text-center
                         ${isTransitioning ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'} 
-                        transition-opacity transition-transform duration-300 ease-in-out`}
+                         transition-transform duration-300 ease-in-out`}
 						style={{ height: '170px', overflowY: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Jersey 10' }}
 						>
             {TAB_DATA.find((t) => t.id === displayTab).content}
