@@ -13,6 +13,7 @@ const handler = async (req, res) => {
       const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
+        automatic_tax: { enabled: true },
         success_url: `${req.headers.origin}/checkout/success?sessionId={CHECKOUT_SESSION_ID}`,
         cancel_url: req.headers.origin,
         shipping_address_collection: {
