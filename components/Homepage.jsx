@@ -1,8 +1,44 @@
 "use client";
 import React from "react";
+import Head from "next/head";
 
 const Homepage = () => {
   return (
+    <>
+    <Head>
+      <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "KhoiStickers",
+          "url": "https://www.khoistickers.com",
+          "logo": "https://www.khoistickers.com/logo.png",
+          "sameAs": [
+            "https://www.instagram.com/designsbykhoi",
+            "https://www.tiktok.com/designsbykhoi"
+          ]
+        })
+      }}
+      />
+      <link rel="canonical" href="https://www.khoistickers.com/" />
+
+      <title>KhoiStickers | High-Quality Custom Stickers – Free Shipping!</title>
+      <meta
+        name="description"
+        content="Shop 3x3 inch custom stickers at KhoiStickers. Buy 3, get 1 free! Free shipping on all orders. High-quality, waterproof, and fade-resistant stickers."
+      />
+      <meta property="og:title" content="KhoiStickers | Buy 3 Stickers, Get 1 Free!" />
+      <meta
+        property="og:description"
+        content="Discover amazing custom stickers. Buy 3, get 1 free. Free shipping on all orders. Shop now at KhoiStickers!"
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://www.khoistickers.com/" />
+      <meta property="og:image" content="https://www.khoistickers.com/your-featured-image.jpg" />
+    </Head>
+
     <section id="products" className="flex flex-col bg-[#f5f5f5]">
       	{/* Promotional Banner */}
 		<div className="relative bg-gradient-to-r from-sky-400 to-blue-500 text-white py-6 px-8  shadow-lg text-center">
@@ -35,6 +71,7 @@ const Homepage = () => {
 
 
     </section>
+    </>
   );
 };
 

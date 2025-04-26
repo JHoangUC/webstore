@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useCart } from '../../context/CartContext'
 import Image from 'next/image'
 import Link from 'next/link';
+import Head from 'next/head';
 
 
 const ProductPage = () => {
@@ -120,118 +121,152 @@ const ProductPage = () => {
     : 'Price unavailable';
 
   return (
-    <div className="container mx-auto mt-20 p-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* Image Carousel */}
-        <div>
-          <Slider {...settings}>
-            {product.images.map((image, index) => (
-              <div key={index} className="relative w-full h-[500px] overflow-hidden rounded-lg">
-              <Image
-                src={image}
-                alt={`${product.name} image ${index + 1}`}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-lg"
-              />
+    <>
+    
+        <Head>
+        <link rel="canonical" href={`https://www.khoistickers.com/productPage/${id}`} />
+          <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": product.name,
+            "image": product.images,
+            "description": product.description,
+            "sku": product.id,
+            "brand": {
+              "@type": "Brand",
+              "name": "KhoiStickers"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": `https://www.khoistickers.com/productPage/${product.id}`,
+              "priceCurrency": "USD",
+              "price": (product.default_price.unit_amount / 100).toFixed(2),
+              "availability": "https://schema.org/InStock"
+            }
+          })
+        }}
+      />
+        <title>{product.name} | KhoiStickers</title>
+        <meta name="description" content={product.description || 'High-quality stickers from KhoiStickers'} />
+        <meta property="og:title" content={`${product.name} | KhoiStickers`} />
+        <meta property="og:description" content={product.description || 'Shop stickers and custom merch from KhoiStickers'} />
+        <meta property="og:image" content={product.images?.[0]} />
+      </Head>
+      <div className="container mx-auto mt-20 p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Image Carousel */}
+          <div>
+            <Slider {...settings}>
+              {product.images.map((image, index) => (
+                <div key={index} className="relative w-full h-[500px] overflow-hidden rounded-lg">
+                <Image
+                  src={image}
+                  alt={`${product.name} image ${index + 1}`}
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-lg"
+                />
+              </div>
+              ))}
+            </Slider>
+          </div>
+
+          {/* Product Information */}
+          <div>
+            <div className="p-6 bg-[#f7f1f1] shadow-lg rounded-lg lg:max-w-xl ">
+
+              <h1 className="text-5xl font-extrabold text-gray-900">{product.name}</h1>
+              <p className="mt-4 text-gray-500 font-bold leading-relaxed">{product.description}</p>
+              <p className="mt-4 text-gray-500 font-bold leading-relaxed font-sans">Product Size: 3x3 in.</p>
+
+              <p className="mt-8 text-2xl font-semibold text-green-600">
+                Price: {formattedPrice}
+              </p>
+              <button
+              onClick={e => {
+                e.stopPropagation() // Prevent parent Link from triggering
+                addItemToCart(price)
+                window.location.reload()
+              }}
+              className='hover:scale-105 bg-[#bebebe]  shadow-lg border border-transparent rounded-md py-3 px-10 text-sm font-bold text-white hover:shadow-2xl hover:from-green-500 hover:to-blue-600 transition-all duration-200'
+            >
+              Add to Cart<span className='sr-only'>, {product.name}</span>
+            </button>
             </div>
-            ))}
-          </Slider>
-        </div>
-
-        {/* Product Information */}
-        <div>
-          <div className="p-6 bg-[#f7f1f1] shadow-lg rounded-lg lg:max-w-xl ">
-
-            <h1 className="text-5xl font-extrabold text-gray-900">{product.name}</h1>
-            <p className="mt-4 text-gray-500 font-bold leading-relaxed">{product.description}</p>
-            <p className="mt-4 text-gray-500 font-bold leading-relaxed font-sans">Product Size: 3x3 in.</p>
-
-            <p className="mt-8 text-2xl font-semibold text-green-600">
-              Price: {formattedPrice}
-            </p>
-            <button
-            onClick={e => {
-              e.stopPropagation() // Prevent parent Link from triggering
-              addItemToCart(price)
-              window.location.reload()
-            }}
-            className='hover:scale-105 bg-[#bebebe]  shadow-lg border border-transparent rounded-md py-3 px-10 text-sm font-bold text-white hover:shadow-2xl hover:from-green-500 hover:to-blue-600 transition-all duration-200'
-          >
-            Add to Cart<span className='sr-only'>, {product.name}</span>
-          </button>
           </div>
         </div>
-      </div>
 
 
 
 
 
 
-      <div className="mt-16 relative">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Other Products You Might Like</h2>
-        
-        {/* Left Arrow Button */}
-        <button
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
-          onClick={scrollLeft}
-          style={{ zIndex: 10 }}
-        >
-          &#8592;
-        </button>
+        <div className="mt-16 relative">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Other Products You Might Like</h2>
+          
+          {/* Left Arrow Button */}
+          <button
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
+            onClick={scrollLeft}
+            style={{ zIndex: 10 }}
+          >
+            &#8592;
+          </button>
 
-        {/* Product Container */}
-        <div
-          className="flex space-x-6 overflow-x-auto no-scrollbar"
-          ref={productContainerRef}
-          style={{ scrollBehavior: 'smooth' }}
-        >
-          {otherProducts.map((otherProduct) => (
-            <div
-              key={otherProduct.id}
-              className="flex-shrink-0 w-1/3 border p-4 rounded-lg shadow-lg"
-              style={{ minWidth: "300px" }}
-            >
-              <Link href={`/productPage/${otherProduct.id}`}>
-                
-                  <div className="relative w-full h-48 mb-4">
-                    <Image
-                      src={otherProduct.images[0]}
-                      alt={otherProduct.name}
-                      layout="fill"
-                      objectFit="contain"
-                      className="rounded-lg"
-                    />
-                  </div>
-                  <h3 className="text-lg font-bold">{otherProduct.name}</h3>
-                  {otherProduct.default_price ? (
-                    <p className="text-gray-500">
-                      {(otherProduct.default_price.unit_amount / 100).toLocaleString('en-CA', {
-                        style: 'currency',
-                        currency: 'USD',
-                      })}
-                    </p>
-                  ) : (
-                    <p className="text-gray-500">Price unavailable</p>
-                  )}
-                
-              </Link>
-            </div>
-          ))}
+          {/* Product Container */}
+          <div
+            className="flex space-x-6 overflow-x-auto no-scrollbar"
+            ref={productContainerRef}
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {otherProducts.map((otherProduct) => (
+              <div
+                key={otherProduct.id}
+                className="flex-shrink-0 w-1/3 border p-4 rounded-lg shadow-lg"
+                style={{ minWidth: "300px" }}
+              >
+                <Link href={`/productPage/${otherProduct.id}`}>
+                  
+                    <div className="relative w-full h-48 mb-4">
+                      <Image
+                        src={otherProduct.images[0]}
+                        alt={otherProduct.name}
+                        layout="fill"
+                        objectFit="contain"
+                        className="rounded-lg"
+                      />
+                    </div>
+                    <h3 className="text-lg font-bold">{otherProduct.name}</h3>
+                    {otherProduct.default_price ? (
+                      <p className="text-gray-500">
+                        {(otherProduct.default_price.unit_amount / 100).toLocaleString('en-CA', {
+                          style: 'currency',
+                          currency: 'USD',
+                        })}
+                      </p>
+                    ) : (
+                      <p className="text-gray-500">Price unavailable</p>
+                    )}
+                  
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow Button */}
+          <button
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
+            onClick={scrollRight}
+            style={{ zIndex: 10 }}
+          >
+            &#8594;
+          </button>
         </div>
-
-        {/* Right Arrow Button */}
-        <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
-          onClick={scrollRight}
-          style={{ zIndex: 10 }}
-        >
-          &#8594;
-        </button>
       </div>
-    </div>
-
+    </>
     
     
   );
